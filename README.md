@@ -1,1 +1,1 @@
-<h1> Scrumbags: Project 1 - College Touring </h1>
+<h1> <center> Scrumbags: Project 1 - College Touring </center> </h1>
