@@ -1,5 +1,5 @@
 <h1> Project 1 - College Touring </h1>
-<br>
+<hr>
 <h3> Collaborators: </h3>
 <center>
 	<ul>
