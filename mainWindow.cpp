@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::on_actionLogin_triggered()
 {
-    auto* login = newLogin(this);
-    login->show();
+//    auto* login = newLogin(this);
+//    login->show();
 }
 
 MainWindow::~MainWindow()
