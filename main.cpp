@@ -1,4 +1,5 @@
 #include "mainWindow.h"
+#include "choosepath.h"
 
 #include <QApplication>
 
