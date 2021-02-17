@@ -1,5 +1,6 @@
-#include "mainwindow.h"
+#include "mainWindow.h"
 #include "ui_mainwindow.h"
+#include "login.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,6 +8,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     //this is me adding a comment
+}
+
+void MainWindow::on_actionLogin_triggered()
+{
+    auto* login = newLogin(this);
+    login->show();
 }
 
 MainWindow::~MainWindow()
