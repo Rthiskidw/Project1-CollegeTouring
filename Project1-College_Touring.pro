@@ -1,25 +1,38 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++11 sdk_no_version_check
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+<<<<<<< HEAD
     login.cpp \
+=======
+    choosepath.cpp \
+>>>>>>> c7959131e280afb868a0612ef9a56f17643f8b9d
     main.cpp \
     mainWindow.cpp
 
 HEADERS += \
+<<<<<<< HEAD
     login.h \
     mainWindow.h
 
 FORMS += \
     login.ui \
     mainWindow.ui
+=======
+    choosepath.h \
+    mainwindow.h
+
+FORMS += \
+    choosepath.ui \
+    mainwindow.ui
+>>>>>>> c7959131e280afb868a0612ef9a56f17643f8b9d
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

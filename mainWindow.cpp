@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this is me adding a comment
+    //this is me adding a comment ok
 }
 
 void MainWindow::on_actionLogin_triggered()
