@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+#include "mainWindow.h"
+=======
 #include "mainwindow.h"
 <<<<<<< HEAD
 #include "database.h"

@@ -9,17 +9,30 @@ CONFIG += c++11 sdk_no_version_check
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+<<<<<<< HEAD
+    login.cpp \
+=======
     choosepath.cpp \
+>>>>>>> c7959131e280afb868a0612ef9a56f17643f8b9d
     main.cpp \
-    mainwindow.cpp
+    mainWindow.cpp
 
 HEADERS += \
+<<<<<<< HEAD
+    login.h \
+    mainWindow.h
+
+FORMS += \
+    login.ui \
+    mainWindow.ui
+=======
     choosepath.h \
     mainwindow.h
 
 FORMS += \
     choosepath.ui \
     mainwindow.ui
+>>>>>>> c7959131e280afb868a0612ef9a56f17643f8b9d
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
