@@ -2,6 +2,7 @@
 #define DATABASE_H
 
 #include <QMainWindow>
+#include <QtSql>
 
 namespace Ui {
 class database;
@@ -15,8 +16,12 @@ public:
     explicit database(QWidget *parent = nullptr);
     ~database();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::database *ui;
+    QSqlDatabase myDataBase;
 };
 
 #endif // DATABASE_H
