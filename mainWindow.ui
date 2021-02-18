@@ -30,7 +30,7 @@
      <enum>Qt::AutoText</enum>
     </property>
     <property name="pixmap">
-     <pixmap>F:/School/College/Saddleback College/Second Year/Semester Two/CS 1D/Projects/Project 1 - College Touring Project/mainwindow_picture.png</pixmap>
+     <pixmap>img/mainwindow imgs/mainwindow_picture.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
