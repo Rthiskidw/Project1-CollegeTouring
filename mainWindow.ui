@@ -15,36 +15,60 @@
   </property>
   <widget class="QWidget" name="centralwidget">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+   <widget class="QPushButton" name="start_button">
+=======
+<<<<<<< HEAD
+>>>>>>> alan-branch
 =======
    <widget class="QLabel" name="start_picture">
+>>>>>>> master
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>340</x>
+      <y>470</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Let's Go!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
       <y>0</y>
-      <width>801</width>
-      <height>561</height>
+      <width>811</width>
+      <height>531</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="textFormat">
-     <enum>Qt::AutoText</enum>
-    </property>
     <property name="pixmap">
-     <pixmap>img/mainwindow imgs/mainwindow_picture.png</pixmap>
+     <pixmap resource="img/Images.qrc">:/imgs/mainwindow/mainwindow imgs/mainwindow_picture.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+   <widget class="QLabel" name="label_2">
+=======
+>>>>>>> alan-branch
 >>>>>>> 1e2032dc2b97a7b23882a01ec4eb492652a7c052
    <widget class="QLabel" name="collegeTour_banner">
+>>>>>>> master
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>270</x>
       <y>0</y>
-      <width>311</width>
+      <width>221</width>
       <height>51</height>
      </rect>
     </property>
@@ -55,12 +79,24 @@
      <string/>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
      <pixmap>D:\Qt Projects\CS1D\Scrumbags-Project1-\img\mainwindow imgs\college_tour_text.png</pixmap>
+=======
+<<<<<<< HEAD
+     <pixmap resource="img/Images.qrc">:/imgs/mainwindow/mainwindow imgs/college_tour_text.png</pixmap>
+=======
+     <pixmap>D:\Qt Projects\CS1D\Scrumbags-Project1-\img\mainwindow imgs\college_tour_text.png</pixmap>
+>>>>>>> master
+>>>>>>> alan-branch
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
+<<<<<<< HEAD
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+=======
    <widget class="QPushButton" name="start_button">
     <property name="geometry">
      <rect>
@@ -95,6 +131,10 @@
    </widget>
    <zorder>main_picture</zorder>
    <zorder>collegeTour_banner</zorder>
+<<<<<<< HEAD
+=======
+>>>>>>> master
+>>>>>>> alan-branch
    <zorder>start_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -121,6 +161,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="img/Images.qrc"/>
+ </resources>
  <connections/>
 </ui>
