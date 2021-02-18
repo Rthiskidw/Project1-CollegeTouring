@@ -14,7 +14,13 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+<<<<<<< HEAD
    <widget class="QPushButton" name="start_button">
+=======
+<<<<<<< HEAD
+=======
+   <widget class="QLabel" name="start_picture">
+>>>>>>> master
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -46,7 +52,12 @@
      <bool>true</bool>
     </property>
    </widget>
+<<<<<<< HEAD
    <widget class="QLabel" name="label_2">
+=======
+>>>>>>> 1e2032dc2b97a7b23882a01ec4eb492652a7c052
+   <widget class="QLabel" name="collegeTour_banner">
+>>>>>>> master
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -55,18 +66,62 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
      <pixmap resource="img/Images.qrc">:/imgs/mainwindow/mainwindow imgs/college_tour_text.png</pixmap>
+=======
+     <pixmap>D:\Qt Projects\CS1D\Scrumbags-Project1-\img\mainwindow imgs\college_tour_text.png</pixmap>
+>>>>>>> master
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
+<<<<<<< HEAD
    <zorder>label</zorder>
    <zorder>label_2</zorder>
+=======
+   <widget class="QPushButton" name="start_button">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>490</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Let's Go!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="main_picture">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>791</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>D:\Qt Projects\CS1D\Scrumbags-Project1-\img\mainwindow imgs\mainwindow_picture.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>main_picture</zorder>
+   <zorder>collegeTour_banner</zorder>
+>>>>>>> master
    <zorder>start_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
