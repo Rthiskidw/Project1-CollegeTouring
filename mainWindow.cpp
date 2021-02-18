@@ -1,6 +1,7 @@
 #include "mainWindow.h"
 #include "ui_mainwindow.h"
 //#include "login.h"
+// checking commit
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
