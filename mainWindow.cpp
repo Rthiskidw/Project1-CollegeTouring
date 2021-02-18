@@ -1,9 +1,6 @@
 #include "mainWindow.h"
 #include "ui_mainwindow.h"
-<<<<<<< HEAD
 // #include "login.h"
-=======
->>>>>>> alan-branch
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

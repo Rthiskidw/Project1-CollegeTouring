@@ -11,11 +11,11 @@ CONFIG += c++11
 SOURCES += \
     choosepath.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainWindow.cpp
 
 HEADERS += \
     choosepath.h \
-    mainwindow.h
+    mainWindow.h
 
 FORMS += \
     choosepath.ui \
