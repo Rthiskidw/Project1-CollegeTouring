@@ -14,28 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="start_picture">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>801</width>
-      <height>561</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="textFormat">
-     <enum>Qt::AutoText</enum>
-    </property>
-    <property name="pixmap">
-     <pixmap>F:/School/College/Saddleback College/Second Year/Semester Two/CS 1D/Projects/Project 1 - College Touring Project/mainwindow_picture.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="collegeTour_banner">
     <property name="geometry">
      <rect>
@@ -45,11 +23,14 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>F:/School/College/Saddleback College/Second Year/Semester Two/CS 1D/Projects/Project 1 - College Touring Project/college_tour_text.png</pixmap>
+     <pixmap>D:\Qt Projects\CS1D\Scrumbags-Project1-\img\mainwindow imgs\college_tour_text.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -68,6 +49,28 @@
      <string>Let's Go!</string>
     </property>
    </widget>
+   <widget class="QLabel" name="main_picture">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>791</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>D:\Qt Projects\CS1D\Scrumbags-Project1-\img\mainwindow imgs\mainwindow_picture.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>main_picture</zorder>
+   <zorder>collegeTour_banner</zorder>
+   <zorder>start_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
