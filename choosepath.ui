@@ -92,7 +92,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Start your trip at UC Irvine and visit 11 other schools. This is the most efficient option. </string>
+    <string>Start your trip at Saddleback College and visit 11 other schools. This is the most efficient option. </string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -149,7 +149,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Choose your starting location and the number of schools you want to visit. </string>
+    <string>Start at ASU and choose the number of schools you want to visit. </string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
