@@ -12,12 +12,12 @@ SOURCES += \
     choosepath.cpp \
     database.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainWindow.cpp
 
 HEADERS += \
     choosepath.h \
     database.h \
-    mainwindow.h
+    mainWindow.h
 
 FORMS += \
     choosepath.ui \

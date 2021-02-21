@@ -14,6 +14,4 @@ Database::Database(const QString& path)
         }
 
 
-
-
 }
