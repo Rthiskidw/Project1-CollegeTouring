@@ -1,5 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+// checking commit
+// Pls don't fk anything up
 
 #include <QMainWindow>
 
