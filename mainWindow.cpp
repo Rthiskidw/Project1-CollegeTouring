@@ -2,6 +2,12 @@
 #include "ui_mainWindow.h"
 #include "choosepath.h"
 #include "database.h"
+#include <QSqlRecord>
+#include <QDir>
+#include <QSqlField>
+#include <QSqlRecord>
+#include <QDebug>
+#include <QSqlError>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this is me adding a comment ok
 }
 
 MainWindow::~MainWindow()

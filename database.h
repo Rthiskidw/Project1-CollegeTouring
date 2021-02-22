@@ -1,18 +1,18 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include <QtSql>
 #include <QSqlDatabase>
-#include <QFileInfo>
-#include <QDebug>
-#include <QString>
+#include <QSqlQueryModel>
+#include <QSqlQuery>
+#include "mainWindow.h"
 
-class Database
+class Database: public QSqlDatabase
 {
 public:
-    Database(const QString& path);
+    static Database* getInstance();
 private:
-    QSqlDatabase myDatabase;
+    Database();
+    static Database* instance;
     QSqlQuery qry;
 };
 
