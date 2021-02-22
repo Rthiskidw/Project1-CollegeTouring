@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>830</width>
     <height>581</height>
    </rect>
   </property>
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-30</y>
-      <width>801</width>
-      <height>561</height>
+      <y>0</y>
+      <width>821</width>
+      <height>531</height>
      </rect>
     </property>
     <property name="text">
@@ -39,7 +39,7 @@
    <widget class="QLabel" name="collegeTour_banner">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>250</x>
       <y>0</y>
       <width>321</width>
       <height>51</height>
@@ -55,10 +55,10 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="start_button">
+   <widget class="QPushButton" name="startButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>350</x>
       <y>470</y>
       <width>121</width>
       <height>41</height>
@@ -74,7 +74,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>830</width>
      <height>21</height>
     </rect>
    </property>
