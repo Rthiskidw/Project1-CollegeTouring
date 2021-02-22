@@ -21,7 +21,7 @@ HEADERS += \
 
 FORMS += \
     choosepath.ui \
-    mainwindow.ui
+    mainWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -32,6 +32,7 @@ RESOURCES += \
 	img/Images.qrc
 
 DISTFILES += \
+	img/ChoosePath imgs/land-clipart-land-road-original.jpg \
 	img/mainwindow imgs/college_tour_text.png \
 	img/mainwindow imgs/mainwindow_picture.png \
 	img/mainwindow imgs/mainwindow_picture.png
