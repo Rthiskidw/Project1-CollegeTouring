@@ -4,6 +4,7 @@
         <file>mainwindow imgs/mainwindow_picture.png</file>
     </qresource>
     <qresource prefix="/imgs/choosepath">
+        <file>ChoosePath imgs/background.png</file>
         <file>ChoosePath imgs/college tour.png</file>
         <file>ChoosePath imgs/road image.png</file>
         <file>ChoosePath imgs/school.png</file>
