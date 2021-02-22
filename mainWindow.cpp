@@ -2,6 +2,12 @@
 #include "ui_mainwindow.h"
 //#include "login.h"
 #include "database.h"
+#include <QSqlRecord>
+#include <QDir>
+#include <QSqlField>
+#include <QSqlRecord>
+#include <QDebug>
+#include <QSqlError>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this is me adding a comment ok
 }
 
 void MainWindow::on_actionLogin_triggered()
