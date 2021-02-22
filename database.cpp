@@ -34,7 +34,7 @@ Database::Database(): QSqlDatabase(addDatabase("QSQLITE")) {
     QString current;//holds new path
 
 
-    while(dir.dirName() != "College-Tour") {
+    while(dir.dirName() != "Project1-CollegeTouring") {
         dir.cdUp();
     }
 
@@ -54,6 +54,5 @@ Database::Database(): QSqlDatabase(addDatabase("QSQLITE")) {
     }
     else
         qDebug() << "Datebase file is not open\n";
-
 }
 
