@@ -4,6 +4,7 @@
 // Pls don't fk anything up
 
 #include <QMainWindow>
+#include "choosepath.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actionLogin_triggered();
+    void on_startButton_clicked();
 
 private:
     Ui::MainWindow *ui;
