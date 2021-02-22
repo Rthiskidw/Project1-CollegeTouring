@@ -2,6 +2,7 @@
 #define CHOOSEPATH_H
 
 #include <QWidget>
+#include "mainWindow.h"
 
 namespace Ui {
 class ChoosePath;
