@@ -1,11 +1,4 @@
-#include <QSqlRecord>
-#include <QDir>
-#include <QSqlField>
-#include <QSqlRecord>
-#include <QDebug>
-#include <QSqlError>
 #include "database.h"
-#include "mainWindow.h"
 
 Database::Database(const QString &path)
 {
