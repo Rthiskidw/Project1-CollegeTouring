@@ -1,10 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-// checking commit
-// Pls don't fk anything up
 
 #include <QMainWindow>
+#include <QPixmap>
 #include "choosepath.h"
+#include "database.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,5 +23,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Database myDb = Database(PROJECT_PATH);
 };
 #endif // MAINWINDOW_H
