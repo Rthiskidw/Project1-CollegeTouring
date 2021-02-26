@@ -28,21 +28,21 @@ public:
     * @param &path - filepath for DB
     * @return void - none
     */
-    void InitCollegeList(const QString &path);
+    void InitCollegeList();
 
     /**
     * @brief initalizes sql data table for souvenir and inputs all data from path parameter file location
     * @param &path - filepath for DB
     * @return void - none
     */
-    void initSouvenirList(const QString &path);
+    void initSouvenirList();
 
     /**
     * @brief initalizes sql data table for college distances and inputs all data from path parameter file location
     * @param &path - filepath for DB
     * @return void - none
     */
-    void initDistanceList(const QString &path);
+    void initDistanceList();
 
 
     /**
@@ -131,7 +131,7 @@ public:
     * @param path - absolute path to db file souv
     * @return void - none
     */
-    void addColleges(const QString &path);
+    void addColleges();
 
     /**
     * @brief checks to see if the username exists
