@@ -25,6 +25,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Database myDb = Database(PROJECT_PATH);
+    Database myDb = Database();
 };
 #endif // MAINWINDOW_H

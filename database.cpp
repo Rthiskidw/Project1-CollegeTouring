@@ -1,8 +1,12 @@
 #include "database.h"
 
-Database::Database(const QString &path)
+Database::Database()
 {
     myDB = QSqlDatabase::addDatabase("QSQLITE");
+
+    QDir dir(QDir::currentPath()); //gets current path
+    path = dir.absolutePath() + "/college.db";
+    qDebug() << "Path is " + path;
 
     myDB.setDatabaseName(path);
 
