@@ -38,9 +38,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_startButton_clicked()
 {
-    MainWindow* mainwindow = new MainWindow(this);
-    mainwindow->show();
-    mainwindow->hide();
     auto* choosePath = new ChoosePath(this);
     choosePath->show();
+}
+
+void MainWindow::on_actionLogin_triggered()
+{
+    auto* login = new Login(this);
+    login->show();
 }
