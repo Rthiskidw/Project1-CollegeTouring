@@ -5,11 +5,12 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
+#include <QDir>
 #include "QSqlDatabase"
 #include "QSqlQuery"
 #include "QDebug"
 
-static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/college.db";
+//static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/college.db";
 
 class Database
 {
@@ -20,7 +21,7 @@ public:
     * Constructor sets up connection with db and opens it
     * @param path - absolute path to db file
     */
-    Database(const QString &path);
+    Database();
 
     /**
     * @brief initalizes sql data table for college and inputs all data from path parameter file location
@@ -197,6 +198,7 @@ private:
  * @brief decalre database field memberobj
  */
     QSqlDatabase myDB;
+    QString path;
 };
 
 #endif // DATABASE_H
