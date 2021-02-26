@@ -5,6 +5,7 @@
 #include <QPixmap>
 #include "choosepath.h"
 #include "database.h"
+#include "login.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +21,7 @@ public:
 
 private slots:
     void on_startButton_clicked();
+    void on_actionLogin_triggered();
 
 private:
     Ui::MainWindow *ui;

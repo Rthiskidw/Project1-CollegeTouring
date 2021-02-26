@@ -1,7 +1,5 @@
 #include "mainWindow.h"
 #include "choosepath.h"
-// test
-
 #include <QApplication>
 
 int main(int argc, char *argv[])

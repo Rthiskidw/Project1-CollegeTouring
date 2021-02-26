@@ -9,18 +9,24 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    admin.cpp \
     choosepath.cpp \
     database.cpp \
+    login.cpp \
     main.cpp \
     mainWindow.cpp
 
 HEADERS += \
+    admin.h \
     choosepath.h \
     database.h \
+    login.h \
     mainWindow.h
 
 FORMS += \
+    admin.ui \
     choosepath.ui \
+    login.ui \
     mainWindow.ui
 
 # Default rules for deployment.
