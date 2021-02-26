@@ -31,7 +31,7 @@ Database::Database()
 
 }
 
-void Database::InitCollegeList(const QString &path)//path to the excel file
+void Database::InitCollegeList()
 {
    QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
    fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
@@ -74,7 +74,7 @@ void Database::InitCollegeList(const QString &path)//path to the excel file
    }
 }
 
-void Database::initSouvenirList(const QString &path)
+void Database::initSouvenirList()
 {
     QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
     fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
@@ -129,7 +129,7 @@ void Database::initSouvenirList(const QString &path)
     }
 }
 
-void Database::initDistanceList(const QString &path)
+void Database::initDistanceList()
 {
     QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
     fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
@@ -535,7 +535,7 @@ QString Database::getPassword(const QString &username) const
         return password;
 }
 
-void Database::addColleges(const QString &path)
+void Database::addColleges()
 {
     QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
     fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
