@@ -5,7 +5,7 @@ Database::Database()
     myDB = QSqlDatabase::addDatabase("QSQLITE");
 
     QDir dir(QDir::currentPath()); //gets current path
-    path = dir.absolutePath() + "/college.db";
+    path = PROJECT_PATH;
     qDebug() << "Path is " + path;
 
     myDB.setDatabaseName(path);
@@ -22,13 +22,6 @@ Database::Database()
 
     QSqlQuery query;
     query.prepare("PRAGMA foreign_keys = ON");
-
-    if(query.exec())
-    {
-        qDebug() << "foreign keys on" << Qt::endl;
-    }
-
-
 }
 
 void Database::InitCollegeList()
