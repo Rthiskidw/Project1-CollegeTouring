@@ -1,6 +1,5 @@
 #include "mainWindow.h"
 #include "ui_mainWindow.h"
-#include "choosepath.h"
 #include "database.h"
 #include <QSqlRecord>
 #include <QDir>

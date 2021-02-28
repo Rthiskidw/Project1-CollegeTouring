@@ -16,7 +16,9 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainWindow.cpp \
-    tripCustom.cpp
+    pathasu.cpp \
+    pathcustom.cpp \
+    pathsaddleback.cpp
 
 HEADERS += \
     admin.h \
@@ -24,16 +26,18 @@ HEADERS += \
     database.h \
     login.h \
     mainWindow.h \
-    tripCustom.h
+    pathasu.h \
+    pathcustom.h \
+    pathsaddleback.h
 
 FORMS += \
     admin.ui \
     choosepath.ui \
     login.ui \
     mainWindow.ui \
-    tripASUnumbered.ui \
-    tripCustom.ui \
-    tripSaddleback.ui
+    pathasu.ui \
+    pathcustom.ui \
+    pathsaddleback.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
