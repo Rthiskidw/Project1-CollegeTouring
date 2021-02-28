@@ -10,7 +10,7 @@
 #include "QSqlQuery"
 #include "QDebug"
 
-//static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/college.db";
+static const QString PROJECT_PATH = "C:/Users/Quan/Documents/Project1-CollegeTouring/college.db";
 
 class Database
 {

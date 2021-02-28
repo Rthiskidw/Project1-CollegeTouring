@@ -1,4 +1,5 @@
-QT       += core gui sql
+QT       += core gui sql \
+    quick
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,20 +15,25 @@ SOURCES += \
     database.cpp \
     login.cpp \
     main.cpp \
-    mainWindow.cpp
+    mainWindow.cpp \
+    tripCustom.cpp
 
 HEADERS += \
     admin.h \
     choosepath.h \
     database.h \
     login.h \
-    mainWindow.h
+    mainWindow.h \
+    tripCustom.h
 
 FORMS += \
     admin.ui \
     choosepath.ui \
     login.ui \
-    mainWindow.ui
+    mainWindow.ui \
+    tripASUnumbered.ui \
+    tripCustom.ui \
+    tripSaddleback.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

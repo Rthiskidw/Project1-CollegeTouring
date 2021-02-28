@@ -71,6 +71,16 @@
     <attribute name="title">
      <string>Colleges</string>
     </attribute>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>831</width>
+       <height>481</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="Souvenirs">
     <attribute name="title">
