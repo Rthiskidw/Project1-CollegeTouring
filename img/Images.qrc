@@ -9,4 +9,8 @@
         <file>ChoosePath imgs/road image.png</file>
         <file>ChoosePath imgs/school.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>souvenirIMGS/logo.png</file>
+        <file>souvenirIMGS/souvenirIMG.png</file>
+    </qresource>
 </RCC>

@@ -18,7 +18,8 @@ SOURCES += \
     mainWindow.cpp \
     pathasu.cpp \
     pathcustom.cpp \
-    pathsaddleback.cpp
+    pathsaddleback.cpp \
+    souvenirshop.cpp
 
 HEADERS += \
     admin.h \
@@ -28,7 +29,8 @@ HEADERS += \
     mainWindow.h \
     pathasu.h \
     pathcustom.h \
-    pathsaddleback.h
+    pathsaddleback.h \
+    souvenirshop.h
 
 FORMS += \
     admin.ui \
@@ -37,7 +39,8 @@ FORMS += \
     mainWindow.ui \
     pathasu.ui \
     pathcustom.ui \
-    pathsaddleback.ui
+    pathsaddleback.ui \
+    souvenirshop.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

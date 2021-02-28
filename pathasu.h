@@ -1,6 +1,6 @@
 #ifndef PATHASU_H
 #define PATHASU_H
-
+#include "souvenirshop.h"
 #include <QWidget>
 
 namespace Ui {
@@ -14,6 +14,9 @@ class pathASU : public QWidget
 public:
     explicit pathASU(QWidget *parent = nullptr);
     ~pathASU();
+
+private slots:
+    void on_toolButton_2_clicked();
 
 private:
     Ui::pathASU *ui;

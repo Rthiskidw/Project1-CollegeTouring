@@ -12,3 +12,9 @@ pathSaddleback::~pathSaddleback()
 {
     delete ui;
 }
+
+void pathSaddleback::on_toolButton_2_clicked()
+{
+    auto* souvenir  = new souvenirShop(this);
+    souvenir -> show();
+}

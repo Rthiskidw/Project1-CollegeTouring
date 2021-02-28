@@ -1,6 +1,6 @@
 #ifndef PATHSADDLEBACK_H
 #define PATHSADDLEBACK_H
-
+#include "souvenirshop.h"
 #include <QWidget>
 
 namespace Ui {
@@ -14,6 +14,9 @@ class pathSaddleback : public QWidget
 public:
     explicit pathSaddleback(QWidget *parent = nullptr);
     ~pathSaddleback();
+
+private slots:
+    void on_toolButton_2_clicked();
 
 private:
     Ui::pathSaddleback *ui;

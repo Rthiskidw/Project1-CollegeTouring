@@ -12,3 +12,9 @@ pathCustom::~pathCustom()
 {
     delete ui;
 }
+
+void pathCustom::on_toolButton_2_clicked()
+{
+    auto* souvenir  = new souvenirShop(this);
+    souvenir -> show();
+}
