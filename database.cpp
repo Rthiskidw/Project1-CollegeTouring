@@ -167,11 +167,11 @@ void Database::initDistanceList()
 
 //QSqlDatabase::removeDatabase("xlsx_connection"); // need to put this out of scope of the initialised db
 
-void Database::removeSou(const QString &souName, const QString &college)
+void Database::removeSouvenir(const QString &souName, const QString &college)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
-    if(souExists(souName, college))
+    if(souvenirExists(souName, college))
     {
         if(myDB.open())
         {
@@ -293,11 +293,11 @@ void Database::addCart(const QString trip, const QString college, const QString 
 }
 
 
-void Database::addSou(const QString &college, const QString &souName, const double &cost)
+void Database::addSouvenir(const QString &college, const QString &souName, const double &cost)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
-    if(!souExists(souName, college))
+    if(!souvenirExists(souName, college))
     {
         if(myDB.open())
         {
@@ -337,7 +337,7 @@ void Database::updateCart(const QString college, const QString souvenir, const i
 
 }
 
-void Database::updateSou(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir)
+void Database::updateSouvenir(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
@@ -387,7 +387,7 @@ void Database::addUser(const QString &user, const QString &pass)
 
 }
 
-bool Database::souExists(const QString &name, const QString &college)
+bool Database::souvenirExists(const QString &name, const QString &college)
 {
     bool exists = false;
 

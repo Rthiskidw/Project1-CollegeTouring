@@ -60,7 +60,7 @@ public:
     * @param &cost - cost of souv
     * @return void - none
     */
-    void addSou(const QString &college, const QString &souName, const double &cost);
+    void addSouvenir(const QString &college, const QString &souName, const double &cost);
 
     /**
     * @brief removes a souv to DB for data tables
@@ -68,7 +68,7 @@ public:
     * @param &souName - name of souv
     * @return void - none
     */
-    void removeSou(const QString &souName, const QString &college);
+    void removeSouvenir(const QString &souName, const QString &college);
 
     /**
     * @brief updates souv to DB for data tables with new values
@@ -78,7 +78,7 @@ public:
     * @param &newSovenir - new object data
     * @return void - none
     */
-    void updateSou(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir);
+    void updateSouvenir(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir);
 
     /**
     * @brief adds souv to cart
@@ -146,7 +146,7 @@ public:
     * @param &college - college that contains souv
     * @return true - username exists, false - username does not exist
     */
-    bool souExists(const QString &name, const QString &college);
+    bool souvenirExists(const QString &name, const QString &college);
 
     /**
     * @brief clears database of all data
