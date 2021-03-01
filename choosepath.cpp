@@ -1,5 +1,7 @@
 #include "choosepath.h"
 #include "ui_choosepath.h"
+#include "mainWindow.h"
+#include "ui_mainWindow.h"
 //test
 
 ChoosePath::ChoosePath(QWidget *parent) :
@@ -18,6 +20,7 @@ void ChoosePath::on_uciButton_clicked()
 {
     auto* saddleback = new pathSaddleback();
     saddleback->show();
+
 }
 
 void ChoosePath::on_pickNumSchoolButton_clicked()

@@ -12,5 +12,9 @@
     <qresource prefix="/">
         <file>souvenirIMGS/logo.png</file>
         <file>souvenirIMGS/souvenirIMG.png</file>
+        <file>tripPlanner_imgs/saddleback campus.png</file>
+    </qresource>
+    <qresource prefix="/imgs/tripPlanner_imgs">
+        <file>tripPlanner_imgs/saddleback campus.png</file>
     </qresource>
 </RCC>
