@@ -10,7 +10,7 @@
 #include "QSqlQuery"
 #include "QDebug"
 
-static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/college.db";
+static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/";
 
 class Database
 {
@@ -21,29 +21,28 @@ public:
     * Constructor sets up connection with db and opens it
     * @param path - absolute path to db file
     */
-    Database();
+    Database(const QString &path);
 
     /**
     * @brief initalizes sql data table for college and inputs all data from path parameter file location
     * @param &path - filepath for DB
     * @return void - none
     */
-    void InitCollegeList();
+    void InitCollegeList(const QString &path);
 
     /**
     * @brief initalizes sql data table for souvenir and inputs all data from path parameter file location
     * @param &path - filepath for DB
     * @return void - none
     */
-    void initSouvenirList();
+    void initsouvenirList(const QString &path);
 
     /**
     * @brief initalizes sql data table for college distances and inputs all data from path parameter file location
     * @param &path - filepath for DB
     * @return void - none
     */
-    void initDistanceList();
-
+    void initDistanceList(const QString &path);
 
     /**
     * @brief adds a user to DB for future logins
@@ -54,37 +53,37 @@ public:
     void addUser(const QString &user, const QString &pass);
 
     /**
-    * @brief adds a souv to DB for data tables
-    * @param &college - college containing souv
-    * @param &souName - name of souv
-    * @param &cost - cost of souv
+    * @brief adds a souvenir to DB for data tables
+    * @param &college - college containing souvenir
+    * @param &souvenirName - name of souvenir
+    * @param &cost - cost of souvenir
     * @return void - none
     */
-    void addSouvenir(const QString &college, const QString &souName, const double &cost);
+    void addSouvenir(const QString &college, const QString &souvenirName, const double &cost);
 
     /**
-    * @brief removes a souv to DB for data tables
-    * @param &college - college containing souv
-    * @param &souName - name of souv
+    * @brief removes a souvenir to DB for data tables
+    * @param &college - college containing souvenir
+    * @param &souvenirName - name of souvenir
     * @return void - none
     */
-    void removeSouvenir(const QString &souName, const QString &college);
+    void removeSouvenir(const QString &souvenirName, const QString &college);
 
     /**
-    * @brief updates souv to DB for data tables with new values
-    * @param &college - college containing souv
-    * @param &souName - name of souv
-    * @param &cost - cost of souv
+    * @brief updates souvenir to DB for data tables with new values
+    * @param &college - college containing souvenir
+    * @param &souvenirName - name of souvenir
+    * @param &cost - cost of souvenir
     * @param &newSovenir - new object data
     * @return void - none
     */
-    void updateSouvenir(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir);
+    void updateSouvenir(const QString &souvenirName, const QString &college, const double &spin, const QString &newsouvenir);
 
     /**
-    * @brief adds souv to cart
+    * @brief adds souvenir to cart
     * @param count - quantity of items
-    * @param souvenir - name of souv
-    * @param price - cost of souv
+    * @param souvenir - name of souvenir
+    * @param price - cost of souvenir
     * @return void - none
     */
     void addCart(const QString trip, const QString college, const QString souvenir, const double price, const int count);
@@ -92,24 +91,24 @@ public:
     /**
     * @brief updates total items in carts with accurate corresponding data
     * @param count - quantity of items
-    * @param souvenir - name of souv
-    * @param college - name of college selling souv
+    * @param souvenir - name of souvenir
+    * @param college - name of college selling souvenir
     * @return void - none
     */
     void updateCart(const QString college, const QString souvenir, const int count);
 
     /**
     * @brief returns quanitity of items in cart
-    * @param souvenir - name of souv
-    * @param college - name of college selling souv
+    * @param souvenir - name of souvenir
+    * @param college - name of college selling souvenir
     * @return int - quanity of cart
     */
     int cartQuantity(const QString college, const QString souvenir);
 
     /**
     * @brief delete item from cart
-    * @param souvenir - name of souv
-    * @param college - name of college selling souv
+    * @param souvenir - name of souvenir
+    * @param college - name of college selling souvenir
     * @return void - none
     */
     void removeCart(const QString college, const QString souvenir);
@@ -128,10 +127,10 @@ public:
 
     /**
     * @brief add colleges from file to DB
-    * @param path - absolute path to db file souv
+    * @param path - absolute path to db file souvenir
     * @return void - none
     */
-    void addColleges();
+    void addColleges(const QString &path);
 
     /**
     * @brief checks to see if the username exists
@@ -141,9 +140,9 @@ public:
     bool userExists(const QString &user);
 
     /**
-    * @brief checks to see if the souv exists
-    * @param &name - name of souv
-    * @param &college - college that contains souv
+    * @brief checks to see if the souvenir exists
+    * @param &name - name of souvenir
+    * @param &college - college that contains souvenir
     * @return true - username exists, false - username does not exist
     */
     bool souvenirExists(const QString &name, const QString &college);
@@ -155,8 +154,8 @@ public:
     void clearDb();
 
     /**
-     * @brief checks to see if DbManager is open
-     * @return true - DbManager is open, false - DbManager is closed
+     * @brief checks to see if Database is open
+     * @return true - Database is open, false - Database is closed
      */
     bool isOpen() const;
 
@@ -192,13 +191,11 @@ public:
 
     void createTripTable();
 
-
 private:
     /**
  * @brief decalre database field memberobj
  */
     QSqlDatabase myDB;
-    QString path;
 };
 
 #endif // DATABASE_H

@@ -27,7 +27,7 @@ private:
     Ui::Login *ui;
     bool loggedIn = false;
     Admin *admin;
-    Database myDb = Database();
+    Database myDb = Database(PROJECT_PATH + "/college.db");
 };
 
 #endif // LOGIN_H
