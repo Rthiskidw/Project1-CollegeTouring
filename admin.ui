@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>640</height>
+    <height>667</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>360</x>
-     <y>600</y>
+     <y>630</y>
      <width>171</width>
      <height>32</height>
     </rect>
@@ -58,18 +58,18 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>50</y>
-     <width>861</width>
-     <height>531</height>
+     <width>871</width>
+     <height>581</height>
     </rect>
    </property>
    <property name="currentIndex">
     <number>1</number>
    </property>
-   <widget class="QWidget" name="Colleges">
+   <widget class="QWidget" name="ViewColleges">
     <attribute name="title">
-     <string>Colleges</string>
+     <string>View Colleges</string>
     </attribute>
     <widget class="QTableView" name="college_tableView">
      <property name="geometry">
@@ -77,14 +77,27 @@
        <x>0</x>
        <y>10</y>
        <width>861</width>
-       <height>481</height>
+       <height>501</height>
       </rect>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_addNewColleges">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>520</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Colleges</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QWidget" name="Souvenirs">
+   <widget class="QWidget" name="ManageSouvenirs">
     <attribute name="title">
-     <string>Souvenirs</string>
+     <string>Manage Souvenirs</string>
     </attribute>
     <widget class="QTableView" name="souvenir_tableView">
      <property name="geometry">
@@ -92,7 +105,7 @@
        <x>270</x>
        <y>10</y>
        <width>581</width>
-       <height>491</height>
+       <height>541</height>
       </rect>
      </property>
     </widget>
