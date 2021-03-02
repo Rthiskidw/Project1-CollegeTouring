@@ -134,8 +134,8 @@ void Database::initDistanceList(const QString &path)
         QSqlQuery * querytoDb = new QSqlQuery(myDB);
 
         querytoDb->exec("CREATE TABLE Distances ("
-                        "startCollege TEXT,"
-                        "endCollege TEXT,"
+                        "starting_college TEXT,"
+                        "ending_college TEXT,"
                         "distance INTEGER);");
 
         while(query->next())
@@ -144,7 +144,7 @@ void Database::initDistanceList(const QString &path)
 
             if(myDB.open())
             {
-                querytoDb->prepare("INSERT INTO Distances(startCollege, endCollege, distance) VALUES(:startCollege, :endCollege, :distance)");
+                querytoDb->prepare("INSERT INTO Distances(starting_college, ending_college, distance) VALUES(:starting_college, :ending_college, :distance)");
 
                 QString column1 = query->value(0).toString();
 
@@ -152,8 +152,8 @@ void Database::initDistanceList(const QString &path)
 
                 int column3 = query->value(2).toInt();
 
-                querytoDb->bindValue(":startCollege", column1);
-                querytoDb->bindValue(":endCollege",column2);
+                querytoDb->bindValue(":starting_college", column1);
+                querytoDb->bindValue(":ending_college",column2);
                 querytoDb->bindValue(":distance",column3);
                 qDebug() << querytoDb->exec();
             }
@@ -546,7 +546,7 @@ void Database::addColleges(const QString &path)
             if(myDB.open())
             {
                 qDebug() << "Database loading..." << Qt::endl;
-                querytoDb->prepare("INSERT INTO Distances(startCollege, endCollege, distance) VALUES(:startCollege, :endCollege, :distance)");
+                querytoDb->prepare("INSERT INTO Distances(starting_college, ending_college, distance) VALUES(:starting_college, :ending_college, :distance)");
                 querytoList->prepare("INSERT OR REPLACE INTO Colleges(collegeName) values(:collegeName)");
 
                 QString column1 = query->value(0).toString();
@@ -554,8 +554,8 @@ void Database::addColleges(const QString &path)
 
                 int column3 = query->value(2).toInt();
 
-                querytoDb->bindValue(":startCollege", column1);
-                querytoDb->bindValue(":endCollege",column2);
+                querytoDb->bindValue(":starting_college", column1);
+                querytoDb->bindValue(":ending_college",column2);
                 querytoDb->bindValue(":distance",column3);
                 qDebug() << querytoDb->exec();
 

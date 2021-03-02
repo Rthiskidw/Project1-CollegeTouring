@@ -22,7 +22,7 @@ void Admin::updateColleges()
 
     QSqlQuery* qry=new QSqlQuery();
 
-    qry->prepare("SELECT * FROM Distances");
+    qry->prepare("SELECT * FROM Colleges");
 
     if(qry->exec())
     {
