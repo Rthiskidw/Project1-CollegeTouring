@@ -16,7 +16,9 @@ public:
     ~pathSaddleback();
 
 private slots:
-    void on_toolButton_2_clicked();
+    void on_startTrip_button_clicked();
+    void on_planTrip_button_clicked();
+    void on_backButton_clicked();
 
 private:
     Ui::pathSaddleback *ui;
