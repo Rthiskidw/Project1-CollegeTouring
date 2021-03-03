@@ -25,6 +25,8 @@ public:
 private slots:
     void on_toolButton_2_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::pathASU *ui;
     QVector<QCheckBox*> checkBoxVector;

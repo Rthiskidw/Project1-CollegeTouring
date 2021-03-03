@@ -94,3 +94,8 @@ void pathASU::CheckboxChanged()
         }
     }
 }
+
+void pathASU::on_backButton_clicked()
+{
+    hide();
+}

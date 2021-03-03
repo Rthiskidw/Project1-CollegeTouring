@@ -43,11 +43,7 @@ void pathSaddleback::on_planTrip_button_clicked()
 
 void pathSaddleback::on_backButton_clicked()
 {
-//    auto* saddleback = new pathSaddleback(this);
-//    saddleback->hide();
-    ChoosePath* choosePath = new ChoosePath(this);
-    choosePath -> show();
-
+    hide();
 }
 
 void pathSaddleback::initializeList()

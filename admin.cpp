@@ -159,10 +159,10 @@ void Admin::on_pushButton_addSouvenir_clicked()
 
 void Admin::on_pushButton_addNewColleges_clicked()
 {
-    myDb.addColleges(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
+//    myDb.addColleges(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
 
-    updateColleges();
-    updateSouvenirs();
+//    updateColleges();
+//    updateSouvenirs();
 }
 
 void Admin::on_pushButton_Initialize_clicked()
