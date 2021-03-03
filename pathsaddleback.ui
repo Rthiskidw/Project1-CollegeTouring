@@ -39,16 +39,6 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#3f3f3f;&quot;&gt;Order of campuses for trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>150</y>
-     <width>401</width>
-     <height>351</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="admin_label">
    <property name="geometry">
     <rect>
@@ -98,16 +88,6 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#005500;&quot;&gt;Starting Campus: Saddleback College&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget_4">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>150</y>
-     <width>391</width>
-     <height>351</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="startCampusHeader_5">
    <property name="geometry">
     <rect>
@@ -133,6 +113,52 @@
    <property name="text">
     <string>Back</string>
    </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea_SchoolOptions">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>149</y>
+     <width>351</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>349</width>
+      <height>359</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea_chosenSchools">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>140</y>
+     <width>371</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>369</width>
+      <height>359</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
