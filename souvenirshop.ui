@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1022</width>
-    <height>624</height>
+    <width>993</width>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-60</x>
-     <y>-110</y>
+     <x>-20</x>
+     <y>-90</y>
      <width>1024</width>
      <height>441</height>
     </rect>
@@ -39,6 +39,9 @@
    </property>
    <property name="pixmap">
     <pixmap resource="img/Images.qrc">:/souvenirIMGS/logo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QTableView" name="tableView">
@@ -113,8 +116,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>694</x>
-     <y>572</y>
+     <x>600</x>
+     <y>550</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -139,8 +142,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>-10</x>
-     <y>-50</y>
+     <x>-130</x>
+     <y>-20</y>
      <width>1421</width>
      <height>711</height>
     </rect>
@@ -150,6 +153,9 @@
    </property>
    <property name="pixmap">
     <pixmap resource="img/Images.qrc">:/souvenirIMGS/souvenirIMG.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <zorder>label_5</zorder>
