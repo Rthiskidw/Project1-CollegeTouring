@@ -59,7 +59,7 @@ void addSouvenir::on_pushButton_addNewSouvenir_clicked()
 
     if(success)
     {
-        myDb.addSouvenir(collegeName,ui->lineEdit_addSouvenirName->text(),ui->doubleSpinBox_addSouvenirCost->value());
+        myDb.addSouvenir(collegeName,ui->lineEdit_addSouvenirName->text(),ui->lineEdit_addSouvenirCost->text());
         hide();
     }
 }

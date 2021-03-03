@@ -10,7 +10,7 @@
 #include "QSqlQuery"
 #include "QDebug"
 
-static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/"
+static const QString PROJECT_PATH = "C:/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/";
 
 class Database
 {
@@ -59,7 +59,7 @@ public:
     * @param &cost - cost of souvenir
     * @return void - none
     */
-    void addSouvenir(const QString &college, const QString &souvenirName, const double &cost);
+    void addSouvenir(const QString &college, const QString &souvenirName, const QString &cost);
 
     /**
     * @brief removes a souvenir to DB for data tables
@@ -77,7 +77,7 @@ public:
     * @param &newSovenir - new object data
     * @return void - none
     */
-    void updateSouvenir(const QString &souvenirName, const QString &college, const double &spin, const QString &newsouvenir);
+    void updateSouvenir(const QString &souvenirName, const QString &college, const QString &spin, const QString &newsouvenir);
 
     /**
     * @brief adds souvenir to cart
