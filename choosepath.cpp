@@ -35,3 +35,8 @@ void ChoosePath::on_customTourButton_clicked()
     custom -> show();
 
 }
+
+void ChoosePath::on_backButton_clicked()
+{
+    hide();
+}
