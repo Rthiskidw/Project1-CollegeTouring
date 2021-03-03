@@ -24,7 +24,7 @@ private slots:
 
 private:
     Ui::addSouvenir *ui;
-    Database myDb = Database();
+    Database myDb = Database(PROJECT_PATH + "/college.db");
 };
 
 #endif // ADDSOUVENIR_H

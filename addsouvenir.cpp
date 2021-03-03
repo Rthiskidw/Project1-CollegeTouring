@@ -20,7 +20,7 @@ void addSouvenir::fillComboBox()
 
     QSqlQuery* qry=new QSqlQuery();
 
-    qry->prepare("SELECT DISTINCT startCollege FROM Distances");
+    qry->prepare("SELECT DISTINCT starting_college FROM Colleges");
 
     if(qry->exec())
     {

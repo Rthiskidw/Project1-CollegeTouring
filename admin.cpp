@@ -22,7 +22,7 @@ void Admin::updateColleges()
 
     QSqlQuery* qry=new QSqlQuery();
 
-    qry->prepare("SELECT * FROM Distances");
+    qry->prepare("SELECT * FROM Colleges");
 
     if(qry->exec())
     {
@@ -135,10 +135,37 @@ void Admin::on_souvenir_tableView_clicked(const QModelIndex &index)
     }
 }
 
+void Admin::onInitialise()
+{
+        myDb.clearDb();
+
+        myDb.InitCollegeList(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
+
+        myDb.initsouvenirList(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
+
+        myDb.initDistanceList(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
+
+    updateColleges();
+    updateSouvenirs();
+}
+
 void Admin::on_pushButton_addSouvenir_clicked()
 {
     addSouvenir adding;
     adding.setModal(true);
     adding.exec();
     updateSouvenirs();
+}
+
+void Admin::on_pushButton_addNewColleges_clicked()
+{
+    myDb.addColleges(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
+
+    updateColleges();
+    updateSouvenirs();
+}
+
+void Admin::on_pushButton_Initialize_clicked()
+{
+    //onInitialise();
 }
