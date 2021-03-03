@@ -68,7 +68,7 @@ void Admin::on_pushButton_updateSouvenir_clicked()
     {
         if(success)
         {
-            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),ui->doubleSpinBox_souvenirPrice->value(), ui->lineEdit_souvenirName->text());
+            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),ui->lineEdit_souvenirPrice->text(), ui->lineEdit_souvenirName->text());
         }
         else
         {
@@ -79,7 +79,7 @@ void Admin::on_pushButton_updateSouvenir_clicked()
     {
         if(success)
         {
-            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),ui->doubleSpinBox_souvenirPrice->value(), ui->lineEdit_souvenirName->text());
+            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),ui->lineEdit_souvenirPrice->text(), ui->lineEdit_souvenirName->text());
         }
         else
         {
@@ -127,11 +127,11 @@ void Admin::on_souvenir_tableView_clicked(const QModelIndex &index)
         QString firstText = index.sibling(row, 0).data().toString();
         QString secondText = index.sibling(row, 1).data().toString();
         tempSouvenir = index.sibling(row, 1).data().toString();
-        double thirdText = index.sibling(row, 2).data().toDouble();
+        QString thirdText = index.sibling(row, 2).data().toString();
 
         ui->lineEdit_souvenirName->setText(secondText);
         ui->label_collegeName->setText(firstText);
-        ui->doubleSpinBox_souvenirPrice->setValue(thirdText);
+        ui->lineEdit_souvenirPrice->setText(thirdText);
     }
 }
 

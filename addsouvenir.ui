@@ -133,16 +133,6 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_addSouvenirCost">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>230</y>
-      <width>91</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_addNewSouvenir">
     <property name="geometry">
      <rect>
@@ -167,6 +157,16 @@
     </property>
     <property name="text">
      <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_addSouvenirCost">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>230</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
     </property>
    </widget>
   </widget>

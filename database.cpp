@@ -173,8 +173,8 @@ void Database::removeSouvenir(const QString &souvenirName, const QString &colleg
     {
         if(myDB.open())
         {
-            query->prepare("DELETE FROM souvenirs WHERE (souvenirName) = (:souvenirName)");
-            query->bindValue(":souvenirName", souvenirName);
+            query->prepare("DELETE FROM souvenirs WHERE (souvenirs) = (:souvenirs)");
+            query->bindValue(":souvenirs", souvenirName);
 
             if(query->exec())
                 qDebug() << "souvenir delete success!";
@@ -291,7 +291,7 @@ void Database::addCart(const QString trip, const QString college, const QString 
 }
 
 
-void Database::addSouvenir(const QString &college, const QString &souvenirName, const double &cost)
+void Database::addSouvenir(const QString &college, const QString &souvenirName, const QString &cost)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
@@ -299,9 +299,9 @@ void Database::addSouvenir(const QString &college, const QString &souvenirName, 
     {
         if(myDB.open())
         {
-            query->prepare("INSERT INTO souvenirs(collegeName, souvenirName, cost) VALUES(:collegeName, :souvenirName, :cost)");
-            query->bindValue(":collegeName", college);
-            query->bindValue(":souvenirName", souvenirName);
+            query->prepare("INSERT INTO souvenirs(college, souvenirs, cost) VALUES(:college, :souvenirs, :cost)");
+            query->bindValue(":college", college);
+            query->bindValue(":souvenirs", souvenirName);
             query->bindValue(":cost", cost);
 
             if(query->exec())
@@ -335,18 +335,18 @@ void Database::updateCart(const QString college, const QString souvenir, const i
 
 }
 
-void Database::updateSouvenir(const QString &souvenirName, const QString &college, const double &spin, const QString &newsouvenir)
+void Database::updateSouvenir(const QString &souvenirName, const QString &college, const QString &spin, const QString &newsouvenir)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
 
     if(myDB.open())
     {
-        query->prepare("UPDATE souvenirs SET (souvenirName, cost) = (:newsouvenirName, :cost) "
-                       "WHERE (collegeName, souvenirName) = (:collegeName, :souvenirName)");
+        query->prepare("UPDATE souvenirs SET (souvenirs, cost) = (:newsouvenirName, :cost) "
+                       "WHERE (college, souvenirs) = (:college, :souvenirs)");
         query->bindValue(":newsouvenirName", newsouvenir);
-        query->bindValue(":collegeName", college);
-        query->bindValue(":souvenirName", souvenirName);
+        query->bindValue(":college", college);
+        query->bindValue(":souvenirs", souvenirName);
         query->bindValue(":cost", spin);
 
         if(query->exec())
@@ -391,9 +391,9 @@ bool Database::souvenirExists(const QString &name, const QString &college)
 
     QSqlQuery *checkQuery = new QSqlQuery(myDB);
 
-    checkQuery->prepare("SELECT souvenirName FROM souvenirs WHERE (collegeName, souvenirName) = (:collegeName, :souvenirName)");
-    checkQuery->bindValue(":souvenirName", name);
-    checkQuery->bindValue(":collegeName", college);
+    checkQuery->prepare("SELECT souvenirs FROM souvenirs WHERE (college, souvenirs) = (:college, :souvenirs)");
+    checkQuery->bindValue(":souvenirs", name);
+    checkQuery->bindValue(":college", college);
 
 
     if(checkQuery->exec())
@@ -401,8 +401,8 @@ bool Database::souvenirExists(const QString &name, const QString &college)
         if(checkQuery->next())
         {
             exists = true;
-            QString souvenirName = checkQuery->value("souvenirName").toString();
-            QString college = checkQuery->value("collegeName").toString();
+            QString souvenirName = checkQuery->value("souvenirs").toString();
+            QString college = checkQuery->value("college").toString();
             qDebug() << souvenirName << " " << college;
         }
     }
