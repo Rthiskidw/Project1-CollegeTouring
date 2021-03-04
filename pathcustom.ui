@@ -17,26 +17,16 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>70</y>
+     <y>55</y>
      <width>421</width>
-     <height>16</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#005500;&quot;&gt;Select starting campus:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>110</y>
-     <width>411</width>
-     <height>401</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="planTrip_button">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -53,22 +43,22 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>520</y>
+     <y>560</y>
      <width>411</width>
-     <height>91</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Start Trip!</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="colName_4">
+  <widget class="QComboBox" name="selectStartingCampus">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>90</y>
      <width>421</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
    </property>
   </widget>
@@ -95,23 +85,13 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget_4">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>160</y>
-     <width>421</width>
-     <height>391</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="startCampusHeader_5">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
+     <y>135</y>
      <width>421</width>
-     <height>16</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -122,7 +102,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>80</y>
+     <y>130</y>
      <width>411</width>
      <height>31</height>
     </rect>
@@ -143,6 +123,52 @@
    <property name="text">
     <string>Back</string>
    </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea_selectColleges">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>421</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>419</width>
+      <height>389</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea_displayTrip">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>159</y>
+     <width>411</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>409</width>
+      <height>389</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
