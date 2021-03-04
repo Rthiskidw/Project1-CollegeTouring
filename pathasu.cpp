@@ -39,7 +39,7 @@ void pathASU::initializeList()
     query->prepare("SELECT DISTINCT starting_college FROM Colleges");
     if(!query->exec())
     {
-        qDebug() << "tripPlanner initializeList query failed";
+        qDebug() << "pathASU initializeList query failed";
 
 
     }

@@ -32,8 +32,6 @@ void addSouvenir::fillComboBox()
     model->setQuery(*qry);
 
     ui->comboBox_addCollegeName->setModel(model);
-
-
 }
 
 void addSouvenir::on_pushButton_addNewSouvenir_clicked()

@@ -69,7 +69,7 @@ void pathSaddleback::initializeList()
     {
         while(query->next())
         {
-             //adding college options and their distances from saddleback to check boxes
+             //adding college options and their distances from saddleback to labels
              QLabel* school = new QLabel((query->value(0).toString()) + " [" + (query->value(1).toString()) + " Miles From Saddleback]");
              schoolLabelsVector.push_back(school);
         }
