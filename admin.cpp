@@ -68,7 +68,10 @@ void Admin::on_pushButton_updateSouvenir_clicked()
     {
         if(success)
         {
-            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),ui->lineEdit_souvenirPrice->text(), ui->lineEdit_souvenirName->text());
+            double costToString = ui->doubleSpinBox_cost->value();
+            QString cost = QString::number(costToString);
+            cost = "$" + cost;
+            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),cost, ui->lineEdit_souvenirName->text());
         }
         else
         {
@@ -79,7 +82,10 @@ void Admin::on_pushButton_updateSouvenir_clicked()
     {
         if(success)
         {
-            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),ui->lineEdit_souvenirPrice->text(), ui->lineEdit_souvenirName->text());
+            double costToString = ui->doubleSpinBox_cost->value();
+            QString cost = QString::number(costToString);
+            cost = "$" + cost;
+            myDb.updateSouvenir(tempSouvenir, ui->label_collegeName->text(),cost, ui->lineEdit_souvenirName->text());
         }
         else
         {
@@ -95,7 +101,7 @@ void Admin::on_pushButton_removeSouvenir_clicked()
 
     if(ui->lineEdit_souvenirName->text() == "")
     {
-        ui->lineEdit_souvenirName->setPlaceholderText("souvenir name empty!");
+        ui->lineEdit_souvenirName->setPlaceholderText("");
         success = false;
     }
 
@@ -127,11 +133,11 @@ void Admin::on_souvenir_tableView_clicked(const QModelIndex &index)
         QString firstText = index.sibling(row, 0).data().toString();
         QString secondText = index.sibling(row, 1).data().toString();
         tempSouvenir = index.sibling(row, 1).data().toString();
-        QString thirdText = index.sibling(row, 2).data().toString();
+        double thirdText = index.sibling(row, 2).data().toString().replace("$", "").toDouble();
 
         ui->lineEdit_souvenirName->setText(secondText);
         ui->label_collegeName->setText(firstText);
-        ui->lineEdit_souvenirPrice->setText(thirdText);
+        ui->doubleSpinBox_cost->setValue(thirdText);
     }
 }
 

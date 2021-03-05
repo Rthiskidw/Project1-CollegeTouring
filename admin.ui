@@ -65,7 +65,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="ViewColleges">
     <attribute name="title">
@@ -219,13 +219,13 @@
       <string>Add Souvenir</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_souvenirPrice">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_cost">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>130</y>
-       <width>113</width>
-       <height>21</height>
+       <x>90</x>
+       <y>140</y>
+       <width>91</width>
+       <height>22</height>
       </rect>
      </property>
     </widget>

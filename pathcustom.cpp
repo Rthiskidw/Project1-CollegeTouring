@@ -17,8 +17,11 @@ pathCustom::~pathCustom()
 
 void pathCustom::on_toolButton_2_clicked()
 {
-    auto* souvenir  = new souvenirShop(this);
+    QVector<QString> collegeVector = collegeNamesVector;
+    auto* souvenir  = new souvenirShop(collegeVector);
+    hide();
     souvenir -> show();
+
 }
 
 void pathCustom::on_backButton_clicked()
