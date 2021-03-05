@@ -57,7 +57,10 @@ void addSouvenir::on_pushButton_addNewSouvenir_clicked()
 
     if(success)
     {
-        myDb.addSouvenir(collegeName,ui->lineEdit_addSouvenirName->text(),ui->lineEdit_addSouvenirCost->text());
+        double costToString = ui->doubleSpinBox_cost->value();
+        QString cost = QString::number(costToString);
+        cost = "$" + cost;
+        myDb.addSouvenir(collegeName,ui->lineEdit_addSouvenirName->text(),cost);
         hide();
     }
 }
