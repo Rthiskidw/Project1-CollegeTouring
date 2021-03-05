@@ -44,7 +44,6 @@
     <bool>true</bool>
    </property>
   </widget>
-<<<<<<< HEAD
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
