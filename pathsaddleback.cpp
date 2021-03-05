@@ -19,8 +19,8 @@ pathSaddleback::~pathSaddleback()
 
 void pathSaddleback::on_startTrip_button_clicked()
 {
-    auto* souvenir  = new souvenirShop(this);
-    souvenir -> show();
+//    auto* souvenir  = new souvenirShop(this);
+//    souvenir -> show();
 }
 
 void pathSaddleback::on_planTrip_button_clicked()
@@ -37,8 +37,6 @@ void pathSaddleback::on_planTrip_button_clicked()
     {
         vBoxLayout->addWidget(chosenSchoolsLabels[i]);
     }
-
-
 }
 
 void pathSaddleback::on_backButton_clicked()

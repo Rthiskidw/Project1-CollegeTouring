@@ -17,8 +17,8 @@ pathASU::~pathASU()
 
 void pathASU::on_toolButton_2_clicked()
 {
-    auto* souvenir  = new souvenirShop(this);
-    souvenir -> show();
+//    auto* souvenir  = new souvenirShop(this);
+//    souvenir -> show();
 }
 
 void pathASU::initializeList()
