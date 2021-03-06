@@ -106,6 +106,4 @@ void souvenirShop::on_buy_button_clicked()
     vBoxLayout->addWidget(purchasedSouvenirs[purchasedSouvenirCount - 1]);
 
     grandTotal = grandTotal + souvenirCost;
-
-
 }

@@ -15,6 +15,7 @@ SOURCES += \
     choosepath.cpp \
     database.cpp \
     efficiencyalgo.cpp \
+    endtour.cpp \
     login.cpp \
     main.cpp \
     mainWindow.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     choosepath.h \
     database.h \
     efficiencyalgo.h \
+    endtour.h \
     login.h \
     mainWindow.h \
     pathasu.h \
@@ -40,6 +42,7 @@ FORMS += \
     addsouvenir.ui \
     admin.ui \
     choosepath.ui \
+    endtour.ui \
     login.ui \
     mainWindow.ui \
     pathasu.ui \
