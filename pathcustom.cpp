@@ -43,6 +43,10 @@ void pathCustom::on_toolButton_2_clicked()
     }
 
     QVector<QString> collegeVector = collegeNamesVector;
+    for(int i = 0; i < collegeNamesVector.size();i++)
+    {
+        qDebug() << collegeNamesVector[i] << Qt::endl;
+    }
     auto* souvenir  = new souvenirShop(totalDistance, collegeVector);
     hide();
     souvenir -> show();
@@ -116,7 +120,7 @@ void pathCustom::initializeList()
                 checkBoxVector.push_back(checkBox);
                 tempLabelVector.push_back(collegeLabel);
                 tempcollegeNamesVector.push_back(collegeName);
-                connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
+                //connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
             }
         }
 
@@ -130,7 +134,6 @@ void pathCustom::initializeList()
 
 void pathCustom::CheckboxChanged()
 {
-
     qDebug() << "Signal caught";
 
     int checkedCount = 0;
@@ -139,9 +142,8 @@ void pathCustom::CheckboxChanged()
     {
         if(checkBoxVector[i]->checkState() == Qt::CheckState::Checked)
         {
-            qDebug() << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesLabelVector.push_back(tempLabelVector[i]);
-            qDebug() << "tempCollegeNames: " << tempcollegeNamesVector[i] << Qt::endl;
+            qDebug() << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesVector.push_back(tempcollegeNamesVector[i]);
             checkedCount++;
         }
@@ -174,6 +176,7 @@ void pathCustom::on_selectStartingCampus_activated()
 
 void pathCustom::on_planTrip_button_clicked()
 {
+    CheckboxChanged();
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
