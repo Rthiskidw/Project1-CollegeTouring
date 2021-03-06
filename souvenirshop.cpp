@@ -9,6 +9,7 @@ souvenirShop::souvenirShop(QVector<QString> collegesVector, QWidget *parent) :
 {
     ui->setupUi(this);
     selectedColleges = collegesVector;
+    purchasedSouvenirCount = 0;
     ui->label_collegeName->setText(selectedColleges[collegeCount]);
 
     QSqlQueryModel* model=new QSqlQueryModel();
@@ -27,6 +28,15 @@ souvenirShop::souvenirShop(QVector<QString> collegesVector, QWidget *parent) :
 
     ui->souvenir_tableView->setModel(model);
     ui->souvenir_tableView->setColumnWidth(0, 195);
+
+    //initliazing purchased souvenirs scroll Area
+
+    container = new QWidget;
+    vBoxLayout = new QVBoxLayout;
+
+    container->setLayout(vBoxLayout);
+
+    ui->scrollArea_purchased->setWidget(container);
 
     collegeCount++;
 }
@@ -87,34 +97,15 @@ void souvenirShop::on_souvenir_tableView_clicked(const QModelIndex &index)
 
 void souvenirShop::on_buy_button_clicked()
 {
-    QSqlQueryModel* model=new QSqlQueryModel();
-
-    QSqlQuery* qry=new QSqlQuery();
-
     QLabel *souvenirName = new QLabel(tempSouvenir + "\t\t" + cost);
+
     purchasedSouvenirs.push_back(souvenirName);
-    QWidget *container = new QWidget;
-    QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
-    container->setLayout(vBoxLayout);
+    purchasedSouvenirCount++;
 
-    ui->scrollArea_purchased->setWidget(container);
+    vBoxLayout->addWidget(purchasedSouvenirs[purchasedSouvenirCount - 1]);
 
-    //filling scroll area with chosen schools
-    for(int i = 0; i < purchasedSouvenirs.size(); i++)
-    {
-        vBoxLayout->addWidget(purchasedSouvenirs[i]);
-    }
-
-    if(qry->exec())
-    {
-        qDebug() << "Souvenirs updated";
-    }
-
-    model->setQuery(*qry);
-
-    //collegeTotals[collegeCount] = collegeTotals[collegeCount] + souvenirCost;
     grandTotal = grandTotal + souvenirCost;
-    //souvenirQuants[collegeCount]++;
+
 
 }

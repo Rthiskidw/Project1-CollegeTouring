@@ -7,6 +7,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QLabel>
+#include <QVBoxLayout>
 
 namespace Ui {
 class souvenirShop;
@@ -42,6 +43,9 @@ private:
     QString tempSouvenir;
     QString cost;
     double souvenirCost;
+    int purchasedSouvenirCount;
+    QVBoxLayout *vBoxLayout;
+    QWidget *container ;
 };
 
 #endif // SOUVENIRSHOP_H
