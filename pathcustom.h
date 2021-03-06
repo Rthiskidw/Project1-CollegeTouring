@@ -37,6 +37,7 @@ private:
     Ui::pathCustom *ui;
     QVector<QCheckBox*> checkBoxVector;
     QVector<QString> collegeNamesVector;
+    QVector<double> collegeDistances;
     QVector<QLabel*> collegeNamesLabelVector;
     QVector<QString> tempcollegeNamesVector;
     QVector<QLabel*> tempLabelVector;
