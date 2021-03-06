@@ -18,7 +18,7 @@ class souvenirShop : public QWidget
     Q_OBJECT
 
 public:
-    explicit souvenirShop(QVector<QString> collegeVector, QWidget *parent = nullptr);
+    explicit souvenirShop(double distance, QVector<QString> collegeVector, QWidget *parent = nullptr);
     ~souvenirShop();
 
 private slots:
