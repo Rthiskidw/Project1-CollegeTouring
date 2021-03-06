@@ -17,6 +17,23 @@ pathCustom::~pathCustom()
 
 void pathCustom::on_toolButton_2_clicked()
 {
+    QSqlQuery *query = new QSqlQuery();
+
+    query->prepare("SELECT DISTINCT distance FROM Colleges WHERE college= (:college)");
+
+    if(!query->exec())
+    {
+        qDebug() << "pathCustom initializeList query failed";
+    }
+    else
+    {
+        while(query->next())
+        {
+            totalDistance = totalDistance + query->value(1).toDouble();
+
+        }
+    }
+
     QVector<QString> collegeVector = collegeNamesVector;
     auto* souvenir  = new souvenirShop(collegeVector);
     hide();
@@ -72,8 +89,6 @@ void pathCustom::initializeList()
     if(!query->exec())
     {
         qDebug() << "pathCustom initializeList query failed";
-
-
     }
     else
     {

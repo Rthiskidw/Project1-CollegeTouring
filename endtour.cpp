@@ -21,7 +21,8 @@ endTour::endTour(QString totalDistance, QString totalCost, QVector<QString> coll
     //filling scroll area with chosen schools
     for(int i = 0; i < collegeNames.size(); i++)
     {
-        collegeLabel = new QLabel(collegeNames[i] + "\t\t" + costAtEachCampus[i]);
+        //collegeLabel = new QLabel(collegeNames[i] + "\t\t" + costAtEachCampus[i]);
+        collegeLabel = new QLabel(collegeNames[i]);
         vBoxLayout->addWidget(collegeLabel);
     }
 }
