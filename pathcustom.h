@@ -42,6 +42,7 @@ private:
     QVector<QLabel*> tempLabelVector;
     QString campusName;
     souvenirShop *souvenir;
+    double totalDistance = 0;
 };
 
 #endif // PATHCUSTOM_H

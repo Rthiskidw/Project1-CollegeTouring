@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>607</width>
-    <height>328</height>
+    <width>718</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>601</width>
+     <width>711</width>
      <height>51</height>
     </rect>
    </property>
@@ -39,9 +39,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>150</y>
-     <width>141</width>
+     <x>10</x>
+     <y>120</y>
+     <width>391</width>
      <height>41</height>
     </rect>
    </property>
@@ -53,14 +53,17 @@
    <property name="text">
     <string>Total Distance Traveled:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_totalDistance">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>160</y>
-     <width>101</width>
-     <height>21</height>
+     <x>10</x>
+     <y>150</y>
+     <width>391</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -71,13 +74,16 @@
    <property name="text">
     <string>[+] totalDistance</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>10</x>
      <y>200</y>
-     <width>61</width>
+     <width>391</width>
      <height>21</height>
     </rect>
    </property>
@@ -89,14 +95,17 @@
    <property name="text">
     <string>Total Cost:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_totalCost">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>200</y>
-     <width>101</width>
-     <height>21</height>
+     <x>10</x>
+     <y>220</y>
+     <width>391</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -107,14 +116,17 @@
    <property name="text">
     <string>[+]totalCost</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea_colleges">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>350</x>
      <y>90</y>
-     <width>251</width>
-     <height>231</height>
+     <width>361</width>
+     <height>321</height>
     </rect>
    </property>
    <property name="widgetResizable">
@@ -125,8 +137,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>249</width>
-      <height>229</height>
+      <width>359</width>
+      <height>319</height>
      </rect>
     </property>
    </widget>
@@ -134,10 +146,10 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>60</y>
-     <width>251</width>
-     <height>31</height>
+     <x>350</x>
+     <y>50</y>
+     <width>361</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">

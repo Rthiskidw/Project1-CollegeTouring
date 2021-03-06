@@ -1,5 +1,6 @@
 #include "souvenirshop.h"
 #include "ui_souvenirshop.h"
+#include "endtour.h"
 #include <QMessageBox>
 #include <QVBoxLayout>
 
@@ -50,6 +51,8 @@ void souvenirShop::on_nextCollege_button_clicked()
 {
     if(collegeCount < selectedColleges.size())
     {
+        souvenirQuants.push_back(purchasedSouvenirCount);
+        purchasedSouvenirCount = 0;
         ui->label_collegeName->setText(selectedColleges[collegeCount]);
 
         QSqlQueryModel* model=new QSqlQueryModel();
@@ -79,7 +82,17 @@ void souvenirShop::on_nextCollege_button_clicked()
 
 void souvenirShop::on_endTour_button_clicked()
 {
-
+    if(collegeCount >= selectedColleges.size())
+    {
+        QString tempCost = "$" + QString::number(grandTotal);
+        auto* endtour = new endTour("totalDistance miles", tempCost, selectedColleges, collegeTotals);
+        hide();
+        endtour->show();
+    }
+    else
+    {
+        QMessageBox::information(this, "Warning", "Your tour is not over. Please finish your tour before clicking \"End Tour\"");
+    }
 }
 
 void souvenirShop::on_souvenir_tableView_clicked(const QModelIndex &index)
