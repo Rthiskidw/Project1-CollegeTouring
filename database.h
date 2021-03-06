@@ -12,9 +12,9 @@
 
 //ryans path - "/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/"
 //reeds path - "/Users/ReedWilson/reed/college/cs 1d/Project1-CollegeTouring/"
-//alans path -
+//alans path - "D:\\Qt Projects\\CS1D\\Scrumbags-Project1-"
 //quans path -
-static const QString PROJECT_PATH = "/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/";
+static const QString PROJECT_PATH = "D:\\Qt Projects\\CS1D\\Scrumbags-Project1-";
 
 class Database
 {

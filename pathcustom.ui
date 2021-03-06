@@ -39,7 +39,7 @@
     <string>Plan Trip!</string>
    </property>
   </widget>
-  <widget class="QToolButton" name="toolButton_2">
+  <widget class="QToolButton" name="startTrip_button">
    <property name="geometry">
     <rect>
      <x>470</x>

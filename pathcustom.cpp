@@ -15,7 +15,7 @@ pathCustom::~pathCustom()
     delete ui;
 }
 
-void pathCustom::on_toolButton_2_clicked()
+void pathCustom::on_startTrip_button_clicked()
 {
     QSqlQuery *query = new QSqlQuery();
 
