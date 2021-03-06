@@ -14,6 +14,7 @@ SOURCES += \
     admin.cpp \
     choosepath.cpp \
     database.cpp \
+    efficiencyalgo.cpp \
     login.cpp \
     main.cpp \
     mainWindow.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     admin.h \
     choosepath.h \
     database.h \
+    efficiencyalgo.h \
     login.h \
     mainWindow.h \
     pathasu.h \
