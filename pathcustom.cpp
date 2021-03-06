@@ -19,7 +19,8 @@ void pathCustom::on_toolButton_2_clicked()
 {
     QSqlQuery *query = new QSqlQuery();
 
-    query->prepare("SELECT DISTINCT distance FROM Colleges WHERE college= (:college)");
+    query->prepare("SELECT distances, ending_college FROM Colleges WHERE starting_college= (:startingCollege)");
+    query->bindValue(":startingCollege", collegeNamesVector[0]);
 
     if(!query->exec())
     {
@@ -27,15 +28,22 @@ void pathCustom::on_toolButton_2_clicked()
     }
     else
     {
+        qDebug() << "pathCustom initializeList query successful";
+
         while(query->next())
         {
-            totalDistance = totalDistance + query->value(1).toDouble();
-
+            for(int index = 0; index < collegeNamesVector.size(); index++)
+            {
+                if(query->value(1).toString() == collegeNamesVector[index])
+                {
+                     totalDistance = totalDistance + query->value(0).toDouble();
+                }
+            }
         }
     }
 
     QVector<QString> collegeVector = collegeNamesVector;
-    auto* souvenir  = new souvenirShop(collegeVector);
+    auto* souvenir  = new souvenirShop(totalDistance, collegeVector);
     hide();
     souvenir -> show();
 
@@ -133,6 +141,7 @@ void pathCustom::CheckboxChanged()
         {
             qDebug() << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesLabelVector.push_back(tempLabelVector[i]);
+            qDebug() << "tempCollegeNames: " << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesVector.push_back(tempcollegeNamesVector[i]);
             checkedCount++;
         }

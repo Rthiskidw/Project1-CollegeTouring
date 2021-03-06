@@ -41,7 +41,6 @@ private:
     QVector<QString> tempcollegeNamesVector;
     QVector<QLabel*> tempLabelVector;
     QString campusName;
-    souvenirShop *souvenir;
     double totalDistance = 0;
 };
 
