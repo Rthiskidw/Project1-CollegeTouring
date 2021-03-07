@@ -42,6 +42,7 @@ private:
     //QVector<QLabel*> orderedSchoolsDistanceLabels;
     QVector<QLabel*> chosenSchoolsLabels;
     Database myDb = Database(PROJECT_PATH + "/college.db");
+    double totalDistance = 0;
 
 
 };

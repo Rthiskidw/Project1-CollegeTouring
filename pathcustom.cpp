@@ -17,40 +17,14 @@ pathCustom::~pathCustom()
 
 void pathCustom::on_startTrip_button_clicked()
 {
-    QSqlQuery *query = new QSqlQuery();
-
-    query->prepare("SELECT distances, ending_college FROM Colleges WHERE starting_college= (:startingCollege)");
-    query->bindValue(":startingCollege", collegeNamesVector[0]);
-
-    if(!query->exec())
+    QVector<QString> collegeVector = sortedCollegeNamesVector;
+    for(int i = 0; i < sortedCollegeNamesVector.size();i++)
     {
-        qDebug() << "pathCustom initializeList query failed";
-    }
-    else
-    {
-        qDebug() << "pathCustom initializeList query successful";
-
-        while(query->next())
-        {
-            for(int index = 0; index < collegeNamesVector.size(); index++)
-            {
-                if(query->value(1).toString() == collegeNamesVector[index])
-                {
-                     totalDistance = totalDistance + query->value(0).toDouble();
-                }
-            }
-        }
-    }
-
-    QVector<QString> collegeVector = collegeNamesVector;
-    for(int i = 0; i < collegeNamesVector.size();i++)
-    {
-        qDebug() << collegeNamesVector[i] << Qt::endl;
+        qDebug() << sortedCollegeNamesVector[i] << Qt::endl;
     }
     auto* souvenir  = new souvenirShop(totalDistance, collegeVector);
     hide();
     souvenir -> show();
-
 }
 
 void pathCustom::on_backButton_clicked()
@@ -88,6 +62,7 @@ void pathCustom::initializeList()
     collegeNamesLabelVector.clear();
     collegeNamesVector.clear();
     collegesByDistance.clear();
+    sortedCollegeNamesVector.clear();
 
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
@@ -106,8 +81,6 @@ void pathCustom::initializeList()
     else
     {
         campusName = ui->selectStartingCampus->currentText();
-        QLabel *startingCollegeLabel = new QLabel(campusName);
-        collegeNamesLabelVector.push_back(startingCollegeLabel);
         collegeNamesVector.push_back(campusName);
 
         while(query->next())
@@ -143,7 +116,6 @@ void pathCustom::CheckboxChanged()
     {
         if(checkBoxVector[i]->checkState() == Qt::CheckState::Checked)
         {
-            collegeNamesLabelVector.push_back(tempLabelVector[i]);
             qDebug() << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesVector.push_back(tempcollegeNamesVector[i]);
             checkedCount++;
@@ -178,6 +150,7 @@ void pathCustom::on_selectStartingCampus_activated()
 void pathCustom::on_planTrip_button_clicked()
 {
     CheckboxChanged();
+    efficiencyAlgo(&collegeNamesVector, &sortedCollegeNamesVector, &collegesByDistance, ui->selectStartingCampus->currentText());
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
@@ -190,5 +163,59 @@ void pathCustom::on_planTrip_button_clicked()
     {
         vBoxLayout->addWidget(collegeNamesLabelVector[i]);
     }
+}
+
+void pathCustom::efficiencyAlgo(QVector<QString> *colleges,
+                 QVector<QString> *routeNames,
+                 QVector<double> *routeDistances,
+                 QString currentCollege)
+{
+    // BASE CASE: no more schools to visit
+    if(colleges->empty()) { return; }
+
+    QString nextSchool;         // next school in route
+    double temp = 0;            // temperary var to compare to min distance
+    double distance = 0;        // stores distance
+    double minDist = 1000000;   // starting point for min distance
+    int minIndex;               // index of min distance in college vector
+
+    // find min distance
+    for(int i=0; i < colleges->size(); i++) {
+
+        qDebug() << "i: " << i << Qt::endl;
+        QSqlQuery *query = new QSqlQuery();
+
+        query->prepare("SELECT * FROM Colleges WHERE "
+                      "Colleges.starting_college == '" + currentCollege + "' AND "
+                      "Colleges.ending_college == '" + colleges->at(i) + "'");
+
+        if(query->exec()) {
+            qDebug() << "Efficiency algo executed" << Qt::endl;
+            query->next();
+            qDebug() << "Distance: " << query->value(2).toDouble() << Qt::endl;
+            distance = query->value(2).toDouble();
+
+        temp = distance;
+
+        if ( temp < minDist ) {
+            minDist = temp;
+            nextSchool = colleges->at(i);
+            minIndex = i;
+        }
+    }
+}
+    // remove nextSchool from college vector
+    colleges->erase(colleges->begin()+minIndex);
+    // add next school to route
+     qDebug() << "School: " << nextSchool << Qt::endl;
+    QLabel* tempSchool = new QLabel(nextSchool);
+    collegeNamesLabelVector.push_back(tempSchool);
+    routeNames->push_back(nextSchool);
+    // add distance to next school in route
+    routeDistances->push_back(minDist);
+    totalDistance = totalDistance + minDist;
+
+    // RECURSIVE CALL
+    efficiencyAlgo(colleges, routeNames, routeDistances, nextSchool);
 }
 
