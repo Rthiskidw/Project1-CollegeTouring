@@ -85,11 +85,13 @@ void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,
     colleges->erase(colleges->begin()+minIndex);
     // add next school to route
      qDebug() << "School: " << nextSchool << Qt::endl;
-    QLabel* tempSchool = new QLabel(nextSchool);
-    orderedSchoolsLabels.push_back(tempSchool);
+
+    QLabel* tempSchool = new QLabel (nextSchool+ " [" + QString::number(minDist) + " miles from " + currentCollege + "]");
+
     routeNames->push_back(nextSchool);
     // add distance to next school in route
     routeDistances->push_back(minDist);
+    orderedSchoolsLabels.push_back(tempSchool);
 
     // RECURSIVE CALL
     efficiencyAlgo(colleges, routeNames, routeDistances, nextSchool);
