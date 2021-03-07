@@ -19,7 +19,8 @@ void pathCustom::on_startTrip_button_clicked()
 {
     QSqlQuery *query = new QSqlQuery();
 
-    query->prepare("SELECT DISTINCT distance FROM Colleges WHERE college= (:college)");
+    query->prepare("SELECT distances, ending_college FROM Colleges WHERE starting_college= (:startingCollege)");
+    query->bindValue(":startingCollege", collegeNamesVector[0]);
 
     if(!query->exec())
     {
@@ -27,15 +28,26 @@ void pathCustom::on_startTrip_button_clicked()
     }
     else
     {
+        qDebug() << "pathCustom initializeList query successful";
+
         while(query->next())
         {
-            totalDistance = totalDistance + query->value(1).toDouble();
-
+            for(int index = 0; index < collegeNamesVector.size(); index++)
+            {
+                if(query->value(1).toString() == collegeNamesVector[index])
+                {
+                     totalDistance = totalDistance + query->value(0).toDouble();
+                }
+            }
         }
     }
 
     QVector<QString> collegeVector = collegeNamesVector;
-    auto* souvenir  = new souvenirShop(collegeVector);
+    for(int i = 0; i < collegeNamesVector.size();i++)
+    {
+        qDebug() << collegeNamesVector[i] << Qt::endl;
+    }
+    auto* souvenir  = new souvenirShop(totalDistance, collegeVector);
     hide();
     souvenir -> show();
 
@@ -109,7 +121,7 @@ void pathCustom::initializeList()
                 checkBoxVector.push_back(checkBox);
                 tempLabelVector.push_back(collegeLabel);
                 tempcollegeNamesVector.push_back(collegeName);
-                connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
+                //connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
             }
         }
 
@@ -123,7 +135,6 @@ void pathCustom::initializeList()
 
 void pathCustom::CheckboxChanged()
 {
-
     qDebug() << "Signal caught";
 
     int checkedCount = 0;
@@ -132,8 +143,8 @@ void pathCustom::CheckboxChanged()
     {
         if(checkBoxVector[i]->checkState() == Qt::CheckState::Checked)
         {
-            qDebug() << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesLabelVector.push_back(tempLabelVector[i]);
+            qDebug() << tempcollegeNamesVector[i] << Qt::endl;
             collegeNamesVector.push_back(tempcollegeNamesVector[i]);
             checkedCount++;
         }
@@ -166,6 +177,7 @@ void pathCustom::on_selectStartingCampus_activated()
 
 void pathCustom::on_planTrip_button_clicked()
 {
+    CheckboxChanged();
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 

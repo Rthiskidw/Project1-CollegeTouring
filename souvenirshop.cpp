@@ -4,11 +4,12 @@
 #include <QMessageBox>
 #include <QVBoxLayout>
 
-souvenirShop::souvenirShop(QVector<QString> collegesVector, QWidget *parent) :
+souvenirShop::souvenirShop(double distance, QVector<QString> collegesVector, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::souvenirShop)
 {
     ui->setupUi(this);
+    distanceTraveled = distance;
     selectedColleges = collegesVector;
     purchasedSouvenirCount = 0;
     ui->label_collegeName->setText(selectedColleges[collegeCount]);
@@ -85,7 +86,8 @@ void souvenirShop::on_endTour_button_clicked()
     if(collegeCount >= selectedColleges.size())
     {
         QString tempCost = "$" + QString::number(grandTotal);
-        auto* endtour = new endTour("totalDistance miles", tempCost, selectedColleges, collegeTotals);
+        QString tempDistance = QString::number(distanceTraveled) + " miles";
+        auto* endtour = new endTour(tempDistance, tempCost, selectedColleges, collegeTotals);
         hide();
         endtour->show();
     }
@@ -116,7 +118,7 @@ void souvenirShop::on_buy_button_clicked()
 
     purchasedSouvenirCount++;
 
-    vBoxLayout->addWidget(purchasedSouvenirs[purchasedSouvenirCount - 1]);
+    vBoxLayout->addWidget(souvenirName);
 
     grandTotal = grandTotal + souvenirCost;
 }

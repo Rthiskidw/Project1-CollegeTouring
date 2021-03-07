@@ -37,12 +37,12 @@ private:
     Ui::pathCustom *ui;
     QVector<QCheckBox*> checkBoxVector;
     QVector<QString> collegeNamesVector;
+    QVector<double> collegeDistances;
     QVector<QLabel*> collegeNamesLabelVector;
     QVector<QString> tempcollegeNamesVector;
     QVector<QLabel*> tempLabelVector;
     QVector<double> collegesByDistance;
     QString campusName;
-    souvenirShop *souvenir;
     double totalDistance = 0;
 };
 
