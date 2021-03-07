@@ -36,6 +36,8 @@ private:
     double distanceTraveled = 0;    // total distance traveled during trip
     double grandTotal = 0;          // grand total spent on souvenirs
     int collegeCount = 0;           // Used for vector index to keep track of which college to display
+    int purchasedSouvAtCampus = 0;      //number of souvenirs bought at each campus
+    double subCostAtCampus = 0;       //sub total cost of souvenirs bought at each campus
     QVector<QString> selectedColleges; // Names of each selected college
     QVector<double> collegeTotals;  // total for each college
     QVector<int> souvenirQuants;    // souvenir quantities
@@ -46,6 +48,7 @@ private:
     int purchasedSouvenirCount;
     QVBoxLayout *vBoxLayout;
     QWidget *container ;
+
 };
 
 #endif // SOUVENIRSHOP_H

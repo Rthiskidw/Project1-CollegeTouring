@@ -223,6 +223,32 @@
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_purchasedSouvAtCampus">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>130</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string> </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_subCostAtCampus">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>150</y>
+     <width>291</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>tableView</zorder>
   <zorder>listView</zorder>
   <zorder>tableView_2</zorder>
@@ -237,6 +263,8 @@
   <zorder>endTour_button</zorder>
   <zorder>scrollArea_purchased</zorder>
   <zorder>nextCollege_button</zorder>
+  <zorder>label_purchasedSouvAtCampus</zorder>
+  <zorder>label_subCostAtCampus</zorder>
  </widget>
  <resources>
   <include location="img/Images.qrc"/>
