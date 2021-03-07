@@ -23,6 +23,10 @@ public:
     void fillComboBox();
     void initializeList();
     void CheckboxChanged();
+    void efficiencyAlgo(QVector<QString> *colleges,
+                     QVector<QString> *routeNames,
+                     QVector<double> *routeDistances,
+                     QString currentCollege);
 
 private slots:
     void on_startTrip_button_clicked();
@@ -42,6 +46,7 @@ private:
     QVector<QString> tempcollegeNamesVector;
     QVector<QLabel*> tempLabelVector;
     QVector<double> collegesByDistance;
+    QVector<QString> sortedCollegeNamesVector;
     QString campusName;
     double totalDistance = 0;
 };

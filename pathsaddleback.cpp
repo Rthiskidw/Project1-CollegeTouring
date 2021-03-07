@@ -19,8 +19,8 @@ pathSaddleback::~pathSaddleback()
 
 void pathSaddleback::on_startTrip_button_clicked()
 {
-//    auto* souvenir  = new souvenirShop(this);
-//    souvenir -> show();
+    auto* souvenir  = new souvenirShop(totalDistance, orderedSchoolsName);
+    souvenir -> show();
 }
 
 void pathSaddleback::on_planTrip_button_clicked()
@@ -90,6 +90,7 @@ void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,
     routeNames->push_back(nextSchool);
     // add distance to next school in route
     routeDistances->push_back(minDist);
+    totalDistance = totalDistance + minDist;
 
     // RECURSIVE CALL
     efficiencyAlgo(colleges, routeNames, routeDistances, nextSchool);
