@@ -75,6 +75,7 @@ void pathCustom::initializeList()
     tempcollegeNamesVector.clear();
     collegeNamesLabelVector.clear();
     collegeNamesVector.clear();
+    collegesByDistance.clear();
 
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
@@ -178,3 +179,4 @@ void pathCustom::on_planTrip_button_clicked()
         vBoxLayout->addWidget(collegeNamesLabelVector[i]);
     }
 }
+

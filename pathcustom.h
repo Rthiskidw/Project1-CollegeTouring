@@ -40,6 +40,7 @@ private:
     QVector<QLabel*> collegeNamesLabelVector;
     QVector<QString> tempcollegeNamesVector;
     QVector<QLabel*> tempLabelVector;
+    QVector<double> collegesByDistance;
     QString campusName;
     souvenirShop *souvenir;
     double totalDistance = 0;
