@@ -223,51 +223,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>271</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>Total Cost at current campus:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_campusCost">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>0</y>
-     <width>171</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255)</string>
-   </property>
-   <property name="text">
-    <string>[+] campusCost</string>
-   </property>
-  </widget>
   <zorder>tableView</zorder>
   <zorder>listView</zorder>
   <zorder>tableView_2</zorder>
@@ -282,8 +237,6 @@
   <zorder>endTour_button</zorder>
   <zorder>scrollArea_purchased</zorder>
   <zorder>nextCollege_button</zorder>
-  <zorder>label_6</zorder>
-  <zorder>label_campusCost</zorder>
  </widget>
  <resources>
   <include location="img/Images.qrc"/>
