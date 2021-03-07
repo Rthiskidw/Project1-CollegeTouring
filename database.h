@@ -14,7 +14,7 @@
 //reeds path - "/Users/ReedWilson/reed/college/cs 1d/Project1-CollegeTouring/"
 //alans path - "D:\\Qt Projects\\CS1D\\Project1-CollegeTouring"
 //quans path -
-static const QString PROJECT_PATH = "D:\\Qt Projects\\CS1D\\Project1-CollegeTouring";
+static const QString PROJECT_PATH = "/Users/ReedWilson/reed/college/cs 1d/Project1-CollegeTouring/";
 
 class Database
 {

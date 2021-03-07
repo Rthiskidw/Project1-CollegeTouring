@@ -73,6 +73,10 @@ void souvenirShop::on_nextCollege_button_clicked()
         ui->souvenir_tableView->setModel(model);
         ui->souvenir_tableView->setColumnWidth(0, 195);
 
+        purchasedSouvAtCampus = 0; //reseting num of souvenirs bought at each campus
+        ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
+        subCostAtCampus = 0; //reseting cost of souvenirs bought at each campus
+        ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QVariant(subCostAtCampus).toString());
         collegeCount++;
     }
     else
@@ -121,4 +125,13 @@ void souvenirShop::on_buy_button_clicked()
     vBoxLayout->addWidget(souvenirName);
 
     grandTotal = grandTotal + souvenirCost;
+
+    purchasedSouvAtCampus++;
+    subCostAtCampus += souvenirCost;
+
+
+    ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
+    ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QVariant(subCostAtCampus).toString());
+
+
 }
