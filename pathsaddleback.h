@@ -39,8 +39,6 @@ private:
     QVector<QString> orderedSchoolsName;
     QVector<double> orderedSchoolsDistance;
     QVector<QLabel*> orderedSchoolsLabels;
-    //QVector<QLabel*> orderedSchoolsDistanceLabels;
-    QVector<QLabel*> chosenSchoolsLabels;
     Database myDb = Database(PROJECT_PATH + "/college.db");
     double totalDistance = 0;
 
