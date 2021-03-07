@@ -30,6 +30,12 @@ private slots:
 private:
     Ui::pathASU *ui;
     QVector<QCheckBox*> checkBoxVector;
+    QVector<QLabel*> orderedSchoolsLabels;
+    QVector<QString> chosenSchools;
+    QVector<QString> orderedSchoolsName;
+    QVector<double> orderedSchoolsDistance;
+    Database myDb = Database(PROJECT_PATH + "/college.db");
+    double totalDistance = 0;
 };
 
 #endif // PATHASU_H
