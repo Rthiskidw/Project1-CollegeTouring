@@ -13,14 +13,9 @@
 //ryans path - "/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/"
 //reeds path - "/Users/ReedWilson/reed/college/cs 1d/Project1-CollegeTouring/"
 //alans path - "D:\\Qt Projects\\CS1D\\Project1-CollegeTouring"
-<<<<<<< HEAD
 //quans path - "C:/Users/Quan/Documents/Project1-CollegeTouring"
-static const QString PROJECT_PATH = "C:/Users/Quan/Documents/Project1-CollegeTouring";
-=======
-//quans path -
 
-static const QString PROJECT_PATH = "/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/";
->>>>>>> 6efc8f1d07682148edc1ebbdb48c3bb58f4e1f29
+static const QString PROJECT_PATH = "C:/Users/Quan/Documents/Project1-CollegeTouring";
 
 
 class Database
