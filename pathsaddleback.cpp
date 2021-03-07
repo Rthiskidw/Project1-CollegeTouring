@@ -91,11 +91,11 @@ void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,
     routeNames->push_back(nextSchool);
     // add distance to next school in route
     routeDistances->push_back(minDist);
-<<<<<<< HEAD
+
     orderedSchoolsLabels.push_back(tempSchool);
-=======
+
     totalDistance = totalDistance + minDist;
->>>>>>> 6efc8f1d07682148edc1ebbdb48c3bb58f4e1f29
+
 
     // RECURSIVE CALL
     efficiencyAlgo(colleges, routeNames, routeDistances, nextSchool);
