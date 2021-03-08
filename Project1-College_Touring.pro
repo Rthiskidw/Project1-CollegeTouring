@@ -15,6 +15,7 @@ SOURCES += \
     choosepath.cpp \
     database.cpp \
     endtour.cpp \
+    fileselector.cpp \
     login.cpp \
     main.cpp \
     mainWindow.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     choosepath.h \
     database.h \
     endtour.h \
+    fileselector.h \
     login.h \
     mainWindow.h \
     pathasu.h \
@@ -41,6 +43,7 @@ FORMS += \
     admin.ui \
     choosepath.ui \
     endtour.ui \
+    fileselector.ui \
     login.ui \
     mainWindow.ui \
     pathasu.ui \

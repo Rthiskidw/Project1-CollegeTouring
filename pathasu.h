@@ -23,9 +23,9 @@ public:
     void CheckboxChanged();
 
 private slots:
-    void on_toolButton_2_clicked();
-
     void on_backButton_clicked();
+
+    void on_pushButton_planTrip_clicked();
 
 private:
     Ui::pathASU *ui;

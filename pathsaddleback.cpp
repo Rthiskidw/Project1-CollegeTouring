@@ -10,6 +10,7 @@ pathSaddleback::pathSaddleback(QWidget *parent) :
 {
     ui->setupUi(this);
     initializeList();
+    ui->startTrip_button->hide();
 }
 
 pathSaddleback::~pathSaddleback()
@@ -40,6 +41,8 @@ void pathSaddleback::on_planTrip_button_clicked()
     {
         vBoxLayout->addWidget(orderedSchoolsLabels[i]);
     }
+    ui->startTrip_button->show();
+    ui->planTrip_button->hide();
 }
 
 void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,

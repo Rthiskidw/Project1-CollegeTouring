@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_planTrip">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -92,7 +92,7 @@ p, li { white-space: pre-wrap; }
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#005500;&quot;&gt;Starting Campus: Arizona State University&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QToolButton" name="toolButton_2">
+  <widget class="QToolButton" name="toolButton_startTrip">
    <property name="geometry">
     <rect>
      <x>450</x>

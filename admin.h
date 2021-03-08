@@ -18,7 +18,6 @@ public:
     ~Admin();
     void updateColleges();
     void updateSouvenirs();
-    void onInitialise();
 
 private slots:
     void on_pushButton_updateSouvenir_clicked();
@@ -30,7 +29,7 @@ private slots:
 
     void on_pushButton_addNewColleges_clicked();
 
-    void on_pushButton_Initialize_clicked();
+    void on_pushButton_clearColleges_clicked();
 
 private:
     Ui::Admin *ui;

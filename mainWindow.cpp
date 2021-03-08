@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    myDb.createTripTable();
-
      // the tables with college info
 
     if(!myDb.isOpen())

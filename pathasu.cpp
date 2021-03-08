@@ -8,6 +8,7 @@ pathASU::pathASU(QWidget *parent) :
     ui->setupUi(this);
 
     initializeList();
+    ui->toolButton_startTrip->hide();
 }
 
 pathASU::~pathASU()
@@ -15,11 +16,6 @@ pathASU::~pathASU()
     delete ui;
 }
 
-void pathASU::on_toolButton_2_clicked()
-{
-//    auto* souvenir  = new souvenirShop(this);
-//    souvenir -> show();
-}
 
 void pathASU::initializeList()
 {
@@ -98,4 +94,10 @@ void pathASU::CheckboxChanged()
 void pathASU::on_backButton_clicked()
 {
     hide();
+}
+
+void pathASU::on_pushButton_planTrip_clicked()
+{
+    ui->toolButton_startTrip->show();
+    ui->pushButton_planTrip->hide();
 }
