@@ -69,9 +69,9 @@ void fileSelector::on_fileView_clicked(const QModelIndex &index)
                 qDebug() << file.errorString();
             }
         else {
-            qDebug() << "OPen file";
+            qDebug() << "file opened";
 
-            //reads file and outsputs info to Table
+            //reads file and outputs info to table
             while (!file.atEnd())
             {
                 QString test = QString(file.readLine());
