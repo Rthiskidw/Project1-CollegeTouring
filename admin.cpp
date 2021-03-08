@@ -1,6 +1,7 @@
 #include "admin.h"
 #include "ui_admin.h"
 #include "database.h"
+#include "fileselector.h"
 
 Admin::Admin(QWidget *parent) :
     QDialog(parent),
@@ -141,20 +142,6 @@ void Admin::on_souvenir_tableView_clicked(const QModelIndex &index)
     }
 }
 
-void Admin::onInitialise()
-{
-        myDb.clearDb();
-
-        myDb.InitCollegeList(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
-
-        myDb.initsouvenirList(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
-
-        myDb.initDistanceList(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
-
-    updateColleges();
-    updateSouvenirs();
-}
-
 void Admin::on_pushButton_addSouvenir_clicked()
 {
     addSouvenir adding;
@@ -165,13 +152,13 @@ void Admin::on_pushButton_addSouvenir_clicked()
 
 void Admin::on_pushButton_addNewColleges_clicked()
 {
-//    myDb.addColleges(PROJECT_PATH + "/College_Campus_Distances_and_Souvenirs.xlsx");
-
-//    updateColleges();
-//    updateSouvenirs();
+    fileSelector* browse = new fileSelector();
+    browse->show();
+    hide();
 }
 
-void Admin::on_pushButton_Initialize_clicked()
+void Admin::on_pushButton_clearColleges_clicked()
 {
-    //onInitialise();
+    myDb.clearColleges();
+    updateColleges();
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>667</height>
+    <height>688</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>360</x>
-     <y>630</y>
+     <y>650</y>
      <width>171</width>
      <height>32</height>
     </rect>
@@ -61,11 +61,11 @@
      <x>10</x>
      <y>50</y>
      <width>871</width>
-     <height>581</height>
+     <height>591</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="ViewColleges">
     <attribute name="title">
@@ -94,17 +94,17 @@
       <string>Add Colleges</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_Initialize">
+    <widget class="QPushButton" name="pushButton_clearColleges">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>140</x>
        <y>520</y>
-       <width>101</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Initialize</string>
+      <string>Clear Colleges</string>
      </property>
     </widget>
    </widget>

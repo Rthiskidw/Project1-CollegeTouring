@@ -8,6 +8,7 @@ pathCustom::pathCustom(QWidget *parent) :
     ui->setupUi(this);
     fillComboBox();
     initializeList();
+    ui->startTrip_button->hide();
 }
 
 pathCustom::~pathCustom()
@@ -163,6 +164,8 @@ void pathCustom::on_planTrip_button_clicked()
     {
         vBoxLayout->addWidget(collegeNamesLabelVector[i]);
     }
+    ui->startTrip_button->show();
+    ui->planTrip_button->hide();
 }
 
 void pathCustom::efficiencyAlgo(QVector<QString> *colleges,
