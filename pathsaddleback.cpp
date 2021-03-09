@@ -26,7 +26,6 @@ void pathSaddleback::on_startTrip_button_clicked()
 
 void pathSaddleback::on_planTrip_button_clicked()
 {
-   // QSqlQuery *query = new QSqlQuery();
     efficiencyAlgo(&chosenSchools, &orderedSchoolsName, &orderedSchoolsDistance, "Saddleback College");
 
     QWidget *container = new QWidget;
