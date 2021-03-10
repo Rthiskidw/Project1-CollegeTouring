@@ -15,7 +15,7 @@ class endTour : public QWidget
 
 public:
     explicit endTour(QString totalDistance, QString totalCost, QVector<QString> collegeNames,
-                     QVector<double> costAtEachCampus,QWidget *parent = nullptr);
+                     QStringList costAtEachCampus,QWidget *parent = nullptr);
     ~endTour();
 
 private slots:

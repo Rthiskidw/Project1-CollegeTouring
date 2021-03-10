@@ -50,6 +50,8 @@ souvenirShop::~souvenirShop()
 
 void souvenirShop::on_nextCollege_button_clicked()
 {
+    subCostList.append(QVariant(subCostAtCampus).toString()); //adding subcost to list as a string
+
     if(collegeCount < selectedColleges.size())
     {
         souvenirQuants.push_back(purchasedSouvenirCount);
@@ -91,7 +93,7 @@ void souvenirShop::on_endTour_button_clicked()
     {
         QString tempCost = "$" + QString::number(grandTotal);
         QString tempDistance = QString::number(distanceTraveled) + " miles";
-        auto* endtour = new endTour(tempDistance, tempCost, selectedColleges, collegeTotals);
+        auto* endtour = new endTour(tempDistance, tempCost, selectedColleges, subCostList);
         hide();
         endtour->show();
     }
