@@ -149,5 +149,6 @@ void pathASU::efficiencyAlgo(QVector<QString> *colleges,
 void pathASU::on_toolButton_startTrip_clicked()
 {
     auto* souvenir  = new souvenirShop(totalDistance, orderedSchoolsName);
+    hide();
     souvenir -> show();
 }

@@ -21,6 +21,7 @@ pathSaddleback::~pathSaddleback()
 void pathSaddleback::on_startTrip_button_clicked()
 {
     auto* souvenir  = new souvenirShop(totalDistance, orderedSchoolsName);
+    hide();
     souvenir -> show();
 }
 
