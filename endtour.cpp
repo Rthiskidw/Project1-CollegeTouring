@@ -2,7 +2,7 @@
 #include "ui_endtour.h"
 
 endTour::endTour(QString totalDistance, QString totalCost, QVector<QString> collegeNames,
-                 QVector<double> costAtEachCampus,QWidget *parent) :
+                 QStringList costAtEachCampus,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::endTour)
 {
@@ -22,7 +22,7 @@ endTour::endTour(QString totalDistance, QString totalCost, QVector<QString> coll
     for(int i = 0; i < collegeNames.size(); i++)
     {
         //collegeLabel = new QLabel(collegeNames[i] + "\t\t" + costAtEachCampus[i]);
-        collegeLabel = new QLabel(collegeNames[i]);
+        collegeLabel = new QLabel(collegeNames[i] + " (Spent $" + costAtEachCampus.at(i) + ")");
         vBoxLayout->addWidget(collegeLabel);
     }
 }
