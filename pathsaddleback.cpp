@@ -54,6 +54,8 @@ void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,
     if(colleges->empty()) { return; }
 
     QString nextSchool;         // next school in route
+    QString saddleback;
+    QLabel *tempSchool;
     double temp = 0;            // temperary var to compare to min distance
     double distance = 0;        // stores distance
     double minDist = 1000000;   // starting point for min distance
@@ -87,9 +89,16 @@ void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,
     // remove nextSchool from college vector
     colleges->erase(colleges->begin()+minIndex);
     // add next school to route
-     qDebug() << "School: " << nextSchool << Qt::endl;
+    qDebug() << "School: " << nextSchool << Qt::endl;
 
-    QLabel* tempSchool = new QLabel (nextSchool+ " [" + QString::number(minDist) + " miles from " + currentCollege + "]");
+    if(nextSchool == "Saddleback College")
+    {
+        tempSchool = new QLabel (nextSchool + " [Starting School]");
+    }
+    else
+    {
+        tempSchool = new QLabel (nextSchool+ " [" + QString::number(minDist) + " miles from " + currentCollege + "]");
+    }
 
     routeNames->push_back(nextSchool);
     // add distance to next school in route
@@ -102,6 +111,10 @@ void pathSaddleback::efficiencyAlgo(QVector<QString> *colleges,
 
     // RECURSIVE CALL
     efficiencyAlgo(colleges, routeNames, routeDistances, nextSchool);
+
+   // tempQuery->prepare("SELECT starting_college, WHERE starting_college='Saddleback College'");
+   // school = new QLabel(tempQuery->value(0).toString());
+
 }
 
 void pathSaddleback::on_backButton_clicked()
@@ -124,12 +137,17 @@ void pathSaddleback::initializeList()
 
 
     query->prepare("SELECT ending_college, distances  FROM Colleges WHERE starting_college='Saddleback College'");
+
     if(!query->exec())
     {
         qDebug() << "pathSaddleback initialize school list query failed";
     }
     else
     {
+        QLabel *tempSchool = new QLabel("Saddleback College");
+        chosenSchools.push_back("Saddleback College");
+        schoolLabelsVector.push_back(tempSchool);
+
         while(query->next())
         {
              //adding college options and their distances from saddleback to labels
