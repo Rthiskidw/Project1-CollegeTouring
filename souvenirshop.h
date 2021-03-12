@@ -48,7 +48,6 @@ private:
     QVBoxLayout *vBoxLayout;
     QWidget *container;
 
-    bool clicked = false;
     int customAmount = 0;
 };
 
