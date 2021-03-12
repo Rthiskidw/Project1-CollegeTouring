@@ -137,9 +137,15 @@ void souvenirShop::on_buy_button_clicked()
         QString customItemPrice = QString::number(souvenirCost*customAmount);
 
         QString space = "";
-        for (int i = 0; i<35-tempSouvenir.length()-customItemPrice.length(); i++)
+        QString space2 = "";
+
+        for (int i = 0; i<27-tempSouvenir.length(); i++)
             space = space + " ";
-        QLabel *souvenirName = new QLabel(customAmountStr + " x\t"+ tempSouvenir  +  space + "$" + customItemPrice);
+
+        for (int i = 0; i<8-customItemPrice.length(); i++)
+            space2 = space2 + " ";
+
+        QLabel *souvenirName = new QLabel(customAmountStr + " x\t"+ tempSouvenir  +  space + "$" + space2 + customItemPrice);
 
         vBoxLayout->addWidget(souvenirName);
 
