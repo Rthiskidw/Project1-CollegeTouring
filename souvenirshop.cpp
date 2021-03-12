@@ -11,7 +11,6 @@ souvenirShop::souvenirShop(double distance, QVector<QString> collegesVector, QWi
     ui->setupUi(this);
     distanceTraveled = distance;
     selectedColleges = collegesVector;
-    purchasedSouvenirCount = 0;
     ui->label_collegeName->setText(selectedColleges[collegeCount]);
 
     QSqlQueryModel* model=new QSqlQueryModel();
@@ -50,12 +49,10 @@ souvenirShop::~souvenirShop()
 
 void souvenirShop::on_nextCollege_button_clicked()
 {
-    subCostList.append(QVariant(subCostAtCampus).toString()); //adding subcost to list as a string
+    subCostList.append(QString::number(subCostAtCampus,'f', 2)); //adding subcost to list as a string
 
     if(collegeCount < selectedColleges.size())
     {
-        souvenirQuants.push_back(purchasedSouvenirCount);
-        purchasedSouvenirCount = 0;
         ui->label_collegeName->setText(selectedColleges[collegeCount]);
 
         QSqlQueryModel* model=new QSqlQueryModel();
@@ -78,7 +75,7 @@ void souvenirShop::on_nextCollege_button_clicked()
         purchasedSouvAtCampus = 0; //reseting num of souvenirs bought at each campus
         ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
         subCostAtCampus = 0; //reseting cost of souvenirs bought at each campus
-        ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QVariant(subCostAtCampus).toString());
+        ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QString::number(subCostAtCampus,'f', 2));
         collegeCount++;
     }
     else
@@ -91,8 +88,8 @@ void souvenirShop::on_endTour_button_clicked()
 {
     if(collegeCount >= selectedColleges.size())
     {
-        QString tempCost = "$" + QString::number(grandTotal);
-        QString tempDistance = QString::number(distanceTraveled) + " miles";
+        QString tempCost = "$" + QString::number(grandTotal, 'f', 2);
+        QString tempDistance = QString::number(distanceTraveled, 'f', 2) + " miles";
         auto* endtour = new endTour(tempDistance, tempCost, selectedColleges, subCostList);
         hide();
         endtour->show();
@@ -120,10 +117,6 @@ void souvenirShop::on_buy_button_clicked()
 {
     QLabel *souvenirName = new QLabel(tempSouvenir + "\t\t" + cost);
 
-    purchasedSouvenirs.push_back(souvenirName);
-
-    purchasedSouvenirCount++;
-
     vBoxLayout->addWidget(souvenirName);
 
     grandTotal = grandTotal + souvenirCost;
@@ -131,9 +124,8 @@ void souvenirShop::on_buy_button_clicked()
     purchasedSouvAtCampus++;
     subCostAtCampus += souvenirCost;
 
-
     ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
-    ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QVariant(subCostAtCampus).toString());
+    ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QString::number(subCostAtCampus, 'f', 2));
 
 
 }

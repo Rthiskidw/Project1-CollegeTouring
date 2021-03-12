@@ -44,7 +44,6 @@ private:
     QVector<double> collegeDistances;
     QVector<QLabel*> collegeNamesLabelVector;
     QVector<QString> tempcollegeNamesVector;
-    QVector<QLabel*> tempLabelVector;
     QVector<double> collegesByDistance;
     QVector<QString> sortedCollegeNamesVector;
     QString campusName;

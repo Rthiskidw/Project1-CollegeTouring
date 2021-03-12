@@ -242,9 +242,9 @@
   <widget class="QLabel" name="label_subCostAtCampus">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>270</x>
      <y>10</y>
-     <width>291</width>
+     <width>400</width>
      <height>21</height>
     </rect>
    </property>

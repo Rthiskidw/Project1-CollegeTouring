@@ -58,7 +58,6 @@ void pathCustom::initializeList()
     QSqlQuery *query = new QSqlQuery();
 
     checkBoxVector.clear();
-    tempLabelVector.clear();
     tempcollegeNamesVector.clear();
     collegeNamesLabelVector.clear();
     collegeNamesVector.clear();
@@ -89,11 +88,9 @@ void pathCustom::initializeList()
             if(campusName != query->value(0).toString())
             {
                 QCheckBox* checkBox = new QCheckBox(query->value(0).toString());
-                QLabel *collegeLabel = new QLabel(query->value(0).toString());
                 QString collegeName = (query->value(0).toString());
                 checkBox->setCheckState(Qt::CheckState::Unchecked);
                 checkBoxVector.push_back(checkBox);
-                tempLabelVector.push_back(collegeLabel);
                 tempcollegeNamesVector.push_back(collegeName);
                 //connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
             }

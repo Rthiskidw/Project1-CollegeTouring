@@ -38,19 +38,13 @@ private:
     int collegeCount = 0;              // Used for vector index to keep track of which college to display
     int purchasedSouvAtCampus = 0;     //number of souvenirs bought at each campus
     double subCostAtCampus = 0;        //sub total cost of souvenirs bought at each campus
-    QStringList subCostList;         //sub total cost of souvenirs bought at each campus as strings
-    int subCostIndex = 0;              //index of subcost array
+    QStringList subCostList;           //sub total cost of souvenirs bought at each campus as strings
     QVector<QString> selectedColleges; // Names of each selected college
-    QVector<double> collegeTotals;     // total for each college
-    QVector<int> souvenirQuants;       // souvenir quantities
-    QVector<QLabel*> purchasedSouvenirs;
     QString tempSouvenir;
     QString cost;
     double souvenirCost;
-    int purchasedSouvenirCount;
     QVBoxLayout *vBoxLayout;
-    QWidget *container ;
-
+    QWidget *container;
 };
 
 #endif // SOUVENIRSHOP_H
