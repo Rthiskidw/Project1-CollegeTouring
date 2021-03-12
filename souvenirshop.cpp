@@ -49,6 +49,7 @@ souvenirShop::~souvenirShop()
 
 void souvenirShop::on_nextCollege_button_clicked()
 {
+    clicked = false;
     subCostList.append(QString::number(subCostAtCampus,'f', 2)); //adding subcost to list as a string
 
     if(collegeCount < selectedColleges.size())
@@ -73,7 +74,7 @@ void souvenirShop::on_nextCollege_button_clicked()
         ui->souvenir_tableView->setColumnWidth(0, 195);
 
         purchasedSouvAtCampus = 0; //reseting num of souvenirs bought at each campus
-        ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: $" + QVariant(purchasedSouvAtCampus).toString());
+        ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
         subCostAtCampus = 0; //reseting cost of souvenirs bought at each campus
         ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: $" + QString::number(subCostAtCampus,'f', 2));
         collegeCount++;
@@ -82,6 +83,7 @@ void souvenirShop::on_nextCollege_button_clicked()
     {
         QMessageBox::information(this, "Warning", "Your tour has ended. To continue, please click \"End Tour\"");
     }
+
 }
 
 void souvenirShop::on_endTour_button_clicked()
@@ -102,6 +104,8 @@ void souvenirShop::on_endTour_button_clicked()
 
 void souvenirShop::on_souvenir_tableView_clicked(const QModelIndex &index)
 {
+    clicked = true;
+
     if(index.isValid())
     {
         int row = index.row();
@@ -116,27 +120,31 @@ void souvenirShop::on_souvenir_tableView_clicked(const QModelIndex &index)
 void souvenirShop::on_buy_button_clicked()
 {
 
+    if (clicked){
+        customAmount =  ui->customInput->value();
 
-    customAmount =  ui->customInput->value();
+        ui->customInput->setValue(1);
 
-    ui->customInput->setValue(1);
+        for (int i = 0; i<customAmount; i++){
+            grandTotal = grandTotal + souvenirCost;
+            purchasedSouvAtCampus++;
+            subCostAtCampus += souvenirCost;
+        }
 
-    for (int i = 0; i<customAmount; i++){
-        grandTotal = grandTotal + souvenirCost;
-        purchasedSouvAtCampus++;
-        subCostAtCampus += souvenirCost;
+        QString customAmountStr = QString::number(customAmount);
+        QString customItemPrice = QString::number(souvenirCost*customAmount);
+        QLabel *souvenirName = new QLabel(customAmountStr + " x\t"+ tempSouvenir  +  "\t\t$" + customItemPrice);
+
+        vBoxLayout->addWidget(souvenirName);
+
+
+        ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
+        ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: $" + QString::number(subCostAtCampus, 'f', 2));
+
     }
-
-    QString customAmountStr = QString::number(customAmount);
-    QString customItemPrice = QString::number(souvenirCost*customAmount);
-    QLabel *souvenirName = new QLabel(customAmountStr + " x\t"+ tempSouvenir  +  "\t\t$" + customItemPrice);
-
-    vBoxLayout->addWidget(souvenirName);
-
-
-    ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
-    ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QString::number(subCostAtCampus, 'f', 2));
-
-
+    else
+    {
+        QMessageBox::information(this, "Warning", "No Souvenir Selected");
+    }
 }
 
