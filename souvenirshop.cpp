@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include <QVBoxLayout>
 
+using namespace std;
+
 souvenirShop::souvenirShop(double distance, QVector<QString> collegesVector, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::souvenirShop)
@@ -133,7 +135,11 @@ void souvenirShop::on_buy_button_clicked()
 
         QString customAmountStr = QString::number(customAmount);
         QString customItemPrice = QString::number(souvenirCost*customAmount);
-        QLabel *souvenirName = new QLabel(customAmountStr + " x\t"+ tempSouvenir  +  "\t\t$" + customItemPrice);
+
+        QString space = "";
+        for (int i = 0; i<35-tempSouvenir.length()-customItemPrice.length(); i++)
+            space = space + " ";
+        QLabel *souvenirName = new QLabel(customAmountStr + " x\t"+ tempSouvenir  +  space + "$" + customItemPrice);
 
         vBoxLayout->addWidget(souvenirName);
 
