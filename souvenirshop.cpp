@@ -115,17 +115,28 @@ void souvenirShop::on_souvenir_tableView_clicked(const QModelIndex &index)
 
 void souvenirShop::on_buy_button_clicked()
 {
-    QLabel *souvenirName = new QLabel(tempSouvenir + "\t\t" + cost);
+
+
+    customAmount =  ui->customInput->value();
+
+    ui->customInput->setValue(1);
+
+    for (int i = 0; i<customAmount; i++){
+        grandTotal = grandTotal + souvenirCost;
+        purchasedSouvAtCampus++;
+        subCostAtCampus += souvenirCost;
+    }
+
+    QString customAmountStr = QString::number(customAmount);
+    QString customItemPrice = QString::number(souvenirCost*customAmount);
+    QLabel *souvenirName = new QLabel(customAmountStr + "x\t"+ tempSouvenir  +  "\t\t$" + customItemPrice);
 
     vBoxLayout->addWidget(souvenirName);
 
-    grandTotal = grandTotal + souvenirCost;
-
-    purchasedSouvAtCampus++;
-    subCostAtCampus += souvenirCost;
 
     ui->label_purchasedSouvAtCampus->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtCampus).toString());
     ui->label_subCostAtCampus->setText("Cost of Souvenirs Purchased Here: " + QString::number(subCostAtCampus, 'f', 2));
 
 
 }
+

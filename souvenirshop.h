@@ -30,6 +30,8 @@ private slots:
 
     void on_buy_button_clicked();
 
+    void on_spinBox_input_textChanged(const QString &arg1);
+
 private:
     Ui::souvenirShop *ui;
 
@@ -43,8 +45,11 @@ private:
     QString tempSouvenir;
     QString cost;
     double souvenirCost;
+    int souvenirAmount;
     QVBoxLayout *vBoxLayout;
     QWidget *container;
+
+    int customAmount = 0;
 };
 
 #endif // SOUVENIRSHOP_H

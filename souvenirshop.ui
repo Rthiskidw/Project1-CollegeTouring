@@ -129,7 +129,7 @@
   <widget class="QPushButton" name="buy_button">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>310</x>
      <y>530</y>
      <width>181</width>
      <height>41</height>
@@ -142,7 +142,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>-130</x>
+     <x>-150</x>
      <y>-130</y>
      <width>1421</width>
      <height>711</height>
@@ -182,7 +182,7 @@
     <rect>
      <x>110</x>
      <y>300</y>
-     <width>371</width>
+     <width>381</width>
      <height>221</height>
     </rect>
    </property>
@@ -255,6 +255,32 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>530</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;Custom Amount&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="customInput">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>550</y>
+     <width>91</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>1</number>
+   </property>
+  </widget>
   <zorder>tableView</zorder>
   <zorder>listView</zorder>
   <zorder>tableView_2</zorder>
@@ -271,6 +297,8 @@
   <zorder>nextCollege_button</zorder>
   <zorder>label_purchasedSouvAtCampus</zorder>
   <zorder>label_subCostAtCampus</zorder>
+  <zorder>label_6</zorder>
+  <zorder>customInput</zorder>
  </widget>
  <resources>
   <include location="img/Images.qrc"/>
