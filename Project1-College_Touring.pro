@@ -10,9 +10,12 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addsouvenir.cpp \
     admin.cpp \
     choosepath.cpp \
     database.cpp \
+    endtour.cpp \
+    fileselector.cpp \
     login.cpp \
     main.cpp \
     mainWindow.cpp \
@@ -22,9 +25,12 @@ SOURCES += \
     souvenirshop.cpp
 
 HEADERS += \
+    addsouvenir.h \
     admin.h \
     choosepath.h \
     database.h \
+    endtour.h \
+    fileselector.h \
     login.h \
     mainWindow.h \
     pathasu.h \
@@ -33,8 +39,11 @@ HEADERS += \
     souvenirshop.h
 
 FORMS += \
+    addsouvenir.ui \
     admin.ui \
     choosepath.ui \
+    endtour.ui \
+    fileselector.ui \
     login.ui \
     mainWindow.ui \
     pathasu.ui \

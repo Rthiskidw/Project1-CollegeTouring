@@ -1,12 +1,9 @@
 #include "database.h"
+#include "admin.h"
 
-Database::Database()
+Database::Database(const QString &path)
 {
     myDB = QSqlDatabase::addDatabase("QSQLITE");
-
-    QDir dir(QDir::currentPath()); //gets current path
-    path = dir.absolutePath() + "/college.db";
-    qDebug() << "Path is " + path;
 
     myDB.setDatabaseName(path);
 
@@ -22,16 +19,10 @@ Database::Database()
 
     QSqlQuery query;
     query.prepare("PRAGMA foreign_keys = ON");
-
-    if(query.exec())
-    {
-        qDebug() << "foreign keys on" << Qt::endl;
-    }
-
-
+    query.exec();
 }
 
-void Database::InitCollegeList()
+void Database::InitCollegeList(const QString &path)//path to the excel file
 {
    QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
    fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
@@ -74,7 +65,7 @@ void Database::InitCollegeList()
    }
 }
 
-void Database::initSouvenirList()
+void Database::initsouvenirList(const QString &path)
 {
     QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
     fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
@@ -84,11 +75,11 @@ void Database::initSouvenirList()
         qDebug() << "Excel connection successful" << Qt::endl;
 
         QSqlQuery *query = new QSqlQuery(fileDB);
-        query->exec("select * from [" + QString("Souvenirs") + "$A1:C61]");
+        query->exec("select * from [" + QString("souvenirs") + "$A1:C61]");
 
         QSqlQuery * querytoDb = new QSqlQuery(myDB);
 
-        querytoDb->exec("CREATE TABLE Souvenirs ("
+        querytoDb->exec("CREATE TABLE souvenirs ("
                         "collegeName TEXT,"
                         "souvenirName TEXT,"
                         "cost DOUBLE);");
@@ -100,7 +91,7 @@ void Database::initSouvenirList()
         {
             if(myDB.open())
             {
-                querytoDb->prepare("INSERT INTO Souvenirs(collegeName, souvenirName, cost) VALUES(:collegeName, :souvenirName, :cost)");
+                querytoDb->prepare("INSERT INTO souvenirs(collegeName, souvenirName, cost) VALUES(:collegeName, :souvenirName, :cost)");
 
                 QString column1 = query->value(0).toString();
                 check = column1;
@@ -129,7 +120,7 @@ void Database::initSouvenirList()
     }
 }
 
-void Database::initDistanceList()
+void Database::initDistanceList(const QString &path)
 {
     QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
     fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
@@ -144,8 +135,8 @@ void Database::initDistanceList()
         QSqlQuery * querytoDb = new QSqlQuery(myDB);
 
         querytoDb->exec("CREATE TABLE Distances ("
-                        "startCollege TEXT,"
-                        "endCollege TEXT,"
+                        "starting_college TEXT,"
+                        "ending_college TEXT,"
                         "distance INTEGER);");
 
         while(query->next())
@@ -154,7 +145,7 @@ void Database::initDistanceList()
 
             if(myDB.open())
             {
-                querytoDb->prepare("INSERT INTO Distances(startCollege, endCollege, distance) VALUES(:startCollege, :endCollege, :distance)");
+                querytoDb->prepare("INSERT INTO Distances(starting_college, ending_college, distance) VALUES(:starting_college, :ending_college, :distance)");
 
                 QString column1 = query->value(0).toString();
 
@@ -162,161 +153,56 @@ void Database::initDistanceList()
 
                 int column3 = query->value(2).toInt();
 
-                querytoDb->bindValue(":startCollege", column1);
-                querytoDb->bindValue(":endCollege",column2);
+                querytoDb->bindValue(":starting_college", column1);
+                querytoDb->bindValue(":ending_college",column2);
                 querytoDb->bindValue(":distance",column3);
                 qDebug() << querytoDb->exec();
             }
         }
         fileDB.close();
     }
+
 }
 
 //QSqlDatabase::removeDatabase("xlsx_connection"); // need to put this out of scope of the initialised db
 
-void Database::removeSou(const QString &souName, const QString &college)
+void Database::removeSouvenir(const QString &souvenirName, const QString &college)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
-    if(souExists(souName, college))
+    if(souvenirExists(souvenirName, college))
     {
         if(myDB.open())
         {
-            query->prepare("DELETE FROM Souvenirs WHERE (souvenirName) = (:souvenirName)");
-            query->bindValue(":souvenirName", souName);
+            query->prepare("DELETE FROM souvenirs WHERE (souvenirs) = (:souvenirs)");
+            query->bindValue(":souvenirs", souvenirName);
 
             if(query->exec())
-                qDebug() << "sou delete success!";
+                qDebug() << "souvenir delete success!";
             else
-                qDebug() << "sou delete failed!";
+                qDebug() << "souvenir delete failed!";
         }
     }
 
 }
 
-int Database::cartQuantity(const QString college, const QString souvenir)
+void Database::addSouvenir(const QString &college, const QString &souvenirName, const QString &cost)
 {
-    int count = 0;
     QSqlQuery *query = new QSqlQuery(myDB);
-    if(myDB.open())
+
+    if(!souvenirExists(souvenirName, college))
     {
-        query->prepare("SELECT quantity FROM Cart WHERE (college, souvenir) = (:college, :souvenir)");
-        query->bindValue(":college", college);
-        query->bindValue(":souvenir", souvenir);
-
-        if(query->exec())
-            qDebug() << "selected quantity";
-        else
-            qDebug() << "coudn't select quantity";
-
-        while(query->next())
-        {
-            count = query->value(0).toInt();
-            qDebug() << count;
-
-            return count;
-        }
-    }
-
-    return 0;
-}
-
-void Database::removeCart(const QString college, const QString souvenir)
-{
-    int count = cartQuantity(college, souvenir);
-    count--;
-
-    if(count != 0)
-    {
-        updateCart(college, souvenir, count);
-    }
-    else
-    {
-        QSqlQuery *query = new QSqlQuery(myDB);
-
         if(myDB.open())
         {
-            query->prepare("DELETE FROM Cart WHERE (college, souvenir) = (:college, :souvenir)");
+            query->prepare("INSERT INTO souvenirs(college, souvenirs, cost) VALUES(:college, :souvenirs, :cost)");
             query->bindValue(":college", college);
-            query->bindValue(":souvenir", souvenir);
-
-            if(query->exec())
-                qDebug() << "cart delete success!";
-            else
-                qDebug() << "cart delete failed!";
-        }
-    }
-}
-
-void Database::addPurchase()
-{
-    QSqlQuery *query = new QSqlQuery(myDB);
-
-    if(myDB.open())
-    {
-        query->prepare("INSERT INTO Purchases SELECT * FROM Cart");
-
-        if(query->exec())
-            qDebug() << "added to purchases!";
-        else
-            qDebug() << "coudn't add to purchases!";
-    }
-}
-
-void Database::resetCart()
-{
-    QSqlQuery *query = new QSqlQuery(myDB);
-
-    if(myDB.open())
-    {
-        query->prepare("DELETE FROM cart");
-
-        if(query->exec())
-            qDebug() << "Delete cART!";
-        else
-            qDebug() << "coudln't delete cart!";
-    }
-}
-
-void Database::addCart(const QString trip, const QString college, const QString souvenir, const double price, const int count)
-{
-   QSqlQuery *query = new QSqlQuery(myDB);
-
-   if(myDB.open())
-   {
-       query->prepare("INSERT INTO Cart(tripID, college, souvenir, price, quantity) VALUES(:tripID, :college, :souvenir, :price, :quantity)");
-       query->bindValue(":tripID", trip);
-       query->bindValue(":college", college);
-       query->bindValue(":souvenir", souvenir);
-       query->bindValue(":price", price);
-       query->bindValue(":quantity",count);
-
-       if(query->exec())
-           qDebug() << "purchase add success!";
-       else
-           qDebug() << "pruchase add failed!";
-   }
-
-}
-
-
-void Database::addSou(const QString &college, const QString &souName, const double &cost)
-{
-    QSqlQuery *query = new QSqlQuery(myDB);
-
-    if(!souExists(souName, college))
-    {
-        if(myDB.open())
-        {
-            query->prepare("INSERT INTO Souvenirs(collegeName, souvenirName, cost) VALUES(:collegeName, :souvenirName, :cost)");
-            query->bindValue(":collegeName", college);
-            query->bindValue(":souvenirName", souName);
+            query->bindValue(":souvenirs", souvenirName);
             query->bindValue(":cost", cost);
 
             if(query->exec())
-                qDebug() << "sou add success!";
+                qDebug() << "souvenir add success!";
             else
-                qDebug() << "sou add failed!";
+                qDebug() << "souvenir add failed!";
         }
     }
     else
@@ -325,37 +211,18 @@ void Database::addSou(const QString &college, const QString &souName, const doub
     }
 }
 
-void Database::updateCart(const QString college, const QString souvenir, const int count)
+void Database::updateSouvenir(const QString &souvenirName, const QString &college, const QString &spin, const QString &newsouvenir)
 {
     QSqlQuery *query = new QSqlQuery(myDB);
 
+
     if(myDB.open())
     {
-        query->prepare("UPDATE Cart SET (quantity) = (:quantity) WHERE (college, souvenir) = (:college, :souvenir)");
+        query->prepare("UPDATE souvenirs SET (souvenirs, cost) = (:newsouvenirName, :cost) "
+                       "WHERE (college, souvenirs) = (:college, :souvenirs)");
+        query->bindValue(":newsouvenirName", newsouvenir);
         query->bindValue(":college", college);
-        query->bindValue(":souvenir", souvenir);
-        query->bindValue(":quantity", count);
-
-        if(query->exec())
-            qDebug() << "UPDATE cart";
-        else
-            qDebug() << "UPDATE failed: " << query->lastError() << Qt::endl;
-    }
-
-}
-
-void Database::updateSou(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir)
-{
-    QSqlQuery *query = new QSqlQuery(myDB);
-
-
-    if(myDB.open())
-    {
-        query->prepare("UPDATE Souvenirs SET (souvenirName, cost) = (:newSouvenirName, :cost) "
-                       "WHERE (collegeName, souvenirName) = (:collegeName, :souvenirName)");
-        query->bindValue(":newSouvenirName", newSouvenir);
-        query->bindValue(":collegeName", college);
-        query->bindValue(":souvenirName", souName);
+        query->bindValue(":souvenirs", souvenirName);
         query->bindValue(":cost", spin);
 
         if(query->exec())
@@ -369,40 +236,16 @@ void Database::updateSou(const QString &souName, const QString &college, const d
     }
 }
 
-void Database::addUser(const QString &user, const QString &pass)
-{
-    QSqlQuery *query = new QSqlQuery(myDB);
-    QString userVal = "User";
 
-   if(!userExists(user))
-   {
-    if(myDB.open())
-    {
-        query->exec("CREATE TABLE Logins ("
-                    "Username TEXT,"
-                    "Password TEXT,"
-                    "UserValue TEXT);");
-
-        query->prepare("INSERT INTO Logins(Username, Password, UserValue) VALUES(:Username, :Password, :UserValue)");
-
-        query->bindValue(":Username", user);
-        query->bindValue(":Password", pass);
-        query->bindValue(":UserValue", userVal);
-        qDebug() << query->exec();
-    }
-   }
-
-}
-
-bool Database::souExists(const QString &name, const QString &college)
+bool Database::souvenirExists(const QString &name, const QString &college)
 {
     bool exists = false;
 
     QSqlQuery *checkQuery = new QSqlQuery(myDB);
 
-    checkQuery->prepare("SELECT souvenirName FROM Souvenirs WHERE (collegeName, souvenirName) = (:collegeName, :souvenirName)");
-    checkQuery->bindValue(":souvenirName", name);
-    checkQuery->bindValue(":collegeName", college);
+    checkQuery->prepare("SELECT souvenirs FROM souvenirs WHERE (college, souvenirs) = (:college, :souvenirs)");
+    checkQuery->bindValue(":souvenirs", name);
+    checkQuery->bindValue(":college", college);
 
 
     if(checkQuery->exec())
@@ -410,9 +253,9 @@ bool Database::souExists(const QString &name, const QString &college)
         if(checkQuery->next())
         {
             exists = true;
-            QString souName = checkQuery->value("souvenirName").toString();
-            QString college = checkQuery->value("collegeName").toString();
-            qDebug() << souName << " " << college;
+            QString souvenirName = checkQuery->value("souvenirs").toString();
+            QString college = checkQuery->value("college").toString();
+            qDebug() << souvenirName << " " << college;
         }
     }
     else
@@ -423,33 +266,7 @@ bool Database::souExists(const QString &name, const QString &college)
     return exists;
 }
 
-bool Database::userExists(const QString &user)
-{
-    bool exists = false;
-
-    QSqlQuery *checkQuery = new QSqlQuery(myDB);
-
-    checkQuery->prepare("SELECT Username FROM Logins WHERE (Username) = (:Username)");
-    checkQuery->bindValue(":Username", user);
-
-    if(checkQuery->exec())
-    {
-        if(checkQuery->next())
-        {
-                exists = true;
-                QString userName = checkQuery->value("Username").toString();
-                qDebug() << userName;
-        }
-    }
-    else
-    {
-        qDebug() << "person exists failed: " << checkQuery->lastError();
-    }
-
-    return exists;
-}
-
-void Database::clearDb()
+void Database::clearColleges()
 {
     QSqlQuery *deleteQuery = new QSqlQuery(myDB);
 
@@ -457,14 +274,7 @@ void Database::clearDb()
 
     deleteQuery->exec();
 
-    deleteQuery->prepare("DROP TABLE IF EXISTS Distances");
-
-    deleteQuery->exec();
-
-    deleteQuery->prepare("DROP TABLE IF EXISTS Souvenirs");
-
-    deleteQuery->exec();
-
+    createDataTables();
 }
 
 bool Database::isOpen() const
@@ -472,183 +282,100 @@ bool Database::isOpen() const
     return myDB.isOpen();
 }
 
-bool Database::checkAdmin(const QString &username) const
-{
-    bool admin = false;
+QStringList Database::parseFile(QString &string) {
+    enum State {Normal, Quote} state = Normal;
+    QStringList fields;
+    QString value;
 
-    QSqlQuery *checkQuery = new QSqlQuery(myDB);
-
-    checkQuery->prepare("SELECT UserValue FROM logins where (Username) = (:Username)");
-    checkQuery->bindValue(":Username", username);
-
-    if(checkQuery->exec())
+    for (int i = 0; i < string.size(); i++)
     {
-        if(checkQuery->next())
+        QChar current = string.at(i);
+
+        // Normal state
+        if (state == Normal)
         {
-            QString userVal = checkQuery->value("UserValue").toString();
-
-            if(userVal == "admin")
+            // Comma
+            if (current == ',')
             {
-                admin = true;
+                // Save field
+                fields.append(value);
+                value.clear();
             }
-            qDebug() << admin;
-        }
-    }
-    else
-    {
-        qDebug() << "Admin exists failed:";
 
-    }
+            // Double-quote
+            else if (current == '"')
+                state = Quote;
 
-    if(admin)
-    {
-        qDebug() << "Admin";
-    }
-
-    return admin;
-}
-
-QString Database::getPassword(const QString &username) const
-{
-    QString password = "ksaflkzfsdjfsflkzfsjlkfxzjkjfklsz";
-    QSqlQuery *getQuery = new QSqlQuery(myDB);
-        getQuery->prepare("SELECT Password FROM logins WHERE (Username) = (:Username)");
-        getQuery->bindValue(":Username", username);
-
-        if (getQuery->exec())
-        {
-            if (getQuery->next())
-            {
-                password = getQuery->value("Password").toString();
-                qDebug() << password;
-            }
+            // Other character
             else
-            {
-                qDebug() << "next query fail: " << getQuery->lastError();
-            }
-        }
-        else
-        {
-            qDebug() << "person 1exists failed: " << getQuery->lastError();
+                value += current;
         }
 
-        return password;
-}
-
-void Database::addColleges()
-{
-    QSqlDatabase fileDB = QSqlDatabase::addDatabase("QODBC", "xlsx_connection");
-    fileDB.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + path);
-
-    if(fileDB.open())
-    {
-        qDebug() << "Excel connection successful" << Qt::endl;
-
-        QSqlQuery *query = new QSqlQuery(fileDB);
-        query->exec("select * from [" + QString("New Campuses") + "$A2:C47]");
-
-        QSqlQuery * querytoDb = new QSqlQuery(myDB);
-        QSqlQuery * querytoList = new QSqlQuery(myDB);
-
-        while(query->next())
+        // In-quote state
+        else if (state == Quote)
         {
-            if(myDB.open())
+            // Another double-quote
+            if (current == '"')
             {
-                querytoDb->prepare("INSERT INTO Distances(startCollege, endCollege, distance) VALUES(:startCollege, :endCollege, :distance)");
-                querytoList->prepare("INSERT OR REPLACE INTO Colleges(collegeName) values(:collegeName)");
-
-                QString column1 = query->value(0).toString();
-                QString column2 = query->value(1).toString();
-
-                int column3 = query->value(2).toInt();
-
-                querytoDb->bindValue(":startCollege", column1);
-                querytoDb->bindValue(":endCollege",column2);
-                querytoDb->bindValue(":distance",column3);
-                qDebug() << querytoDb->exec();
-
-
+                if (i+1 < string.size())
                 {
-                    querytoList->bindValue(":collegeName",query->value(0).toString());
-                    qDebug() << querytoList->exec();
+                    QChar next = string.at(i+1);
 
+                    // A double double-quote?
+                    if (next == '"')
+                    {
+                        value += '"';
+                        i++;
+                    }
+                    else
+                        state = Normal;
                 }
-
             }
-        }
 
-        fileDB.close();
+            // Other character
+            else
+                value += current;
+        }
+    }
+    if (!value.isEmpty())
+        fields.append(value);
+
+    return fields;
+}
+
+/**
+ * @brief Database::addNewColleges
+ * @param list
+ */
+void Database::addNewColleges(QStringList list) {
+    QSqlQuery* query = new QSqlQuery(myDB);
+
+    //adds collge to College Table
+    query->prepare("INSERT INTO Colleges (starting_college, ending_college, distances)"
+                  " VALUES (:starting, :ending, :dist)");
+
+    //binds values
+    query->bindValue(":starting", list.at(0));
+    query->bindValue(":ending", list.at(1));
+    query->bindValue(":dist", list.at(2));
+
+    //executes query
+    if (query->exec()) {
+        qDebug() << "Query was executed";
+    } else {
+        qDebug() << "Query was not executed";
     }
 }
 
-void Database::createTripTable()
+void Database::createDataTables()
 {
     QSqlQuery *query = new QSqlQuery(myDB);
-    QString userVal = "User";
 
     if(myDB.open())
     {
-        query->exec("CREATE TABLE Trips ("
-                    "tripID TEXT,"
-                    "college TEXT,"
-                    "tripProgress INT,"
-                    "distanceToNext INT);");
-
-        query->exec("CREATE TABLE Purchases ("
-                    "tripID TEXT,"
-                    "college TEXT,"
-                    "souvenir TEXT,"
-                    "price DOUBLE,"
-                    "quantity INTEGER);");
-
+        query->exec("CREATE TABLE Colleges ("
+                    "starting_college TEXT,"
+                    "ending_college TEXT,"
+                    "distances INT);");
     }
-
 }
-
-void Database::addTrip(QString tripID, QString plannedCollege, int index, int distanceTo)
-{
-    QSqlQuery *query = new QSqlQuery(myDB);
-
-    if(myDB.open())
-    {
-        query->prepare("INSERT INTO Trips(tripID, college, tripProgress, distanceToNext) VALUES(:tripID, :college, :int, :distanceToNext)");
-
-        query->bindValue(":tripID", tripID);
-        query->bindValue(":college", plannedCollege);
-        query->bindValue(":int", (index + 1));
-        query->bindValue(":distanceToNext", distanceTo);
-        qDebug() << query->exec();
-
-    }
-
-
-
-}
-
-
-bool Database::tripIdExists(QString tripID)
-{
-
-    bool exists = false;
-
-    QSqlQuery *checkQuery = new QSqlQuery(myDB);
-
-    checkQuery->prepare("SELECT tripID FROM Trips WHERE (tripID) = (:tripID)");
-    checkQuery->bindValue(":tripID", tripID);
-
-    if(checkQuery->exec())
-    {
-        if(checkQuery->next())
-        {
-                exists = true;
-        }
-    }
-    else
-    {
-        qDebug() << "trip id does not exist";
-    }
-
-    return exists;
-}
-
-

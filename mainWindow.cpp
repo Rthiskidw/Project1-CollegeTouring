@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    myDb.createTripTable();
-
      // the tables with college info
 
     if(!myDb.isOpen())
@@ -38,7 +36,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_startButton_clicked()
 {
     auto* choosePath = new ChoosePath(this);
+    auto* mainWindow = new MainWindow(this);
     choosePath->show();
+    mainWindow->close();
+
 }
 
 void MainWindow::on_actionLogin_triggered()

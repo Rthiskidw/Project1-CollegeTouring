@@ -10,195 +10,49 @@
 #include "QSqlQuery"
 #include "QDebug"
 
-static const QString PROJECT_PATH = "C:/Users/Quan/Documents/Project1-CollegeTouring/college.db";
+//ryans path - "/Users/ryans/OneDrive/Documents/Project1-CollegeTouring/"
+//reeds path - "/Users/ReedWilson/reed/college/cs 1d/Project1-CollegeTouring/"
+//alans path - "D:\\Qt Projects\\CS1D\\Project1-CollegeTouring"
+//quans path - "C:/Users/Quan/Documents/Project1-CollegeTouring"
+
+static const QString PROJECT_PATH = "C:/Users/Quan/Documents/Project1-CollegeTouring";
+
 
 class Database
 {
 public:
-    /**
-    * @brief Constructor
-    *
-    * Constructor sets up connection with db and opens it
-    * @param path - absolute path to db file
-    */
-    Database();
 
-    /**
-    * @brief initalizes sql data table for college and inputs all data from path parameter file location
-    * @param &path - filepath for DB
-    * @return void - none
-    */
-    void InitCollegeList();
+    Database(const QString &path);
 
-    /**
-    * @brief initalizes sql data table for souvenir and inputs all data from path parameter file location
-    * @param &path - filepath for DB
-    * @return void - none
-    */
-    void initSouvenirList();
+    void InitCollegeList(const QString &path);
 
-    /**
-    * @brief initalizes sql data table for college distances and inputs all data from path parameter file location
-    * @param &path - filepath for DB
-    * @return void - none
-    */
-    void initDistanceList();
+    void initsouvenirList(const QString &path);
 
+    void initDistanceList(const QString &path);
 
-    /**
-    * @brief adds a user to DB for future logins
-    * @param &user - user name
-    * @param &pass - password
-    * @return void - none
-    */
-    void addUser(const QString &user, const QString &pass);
+    void addSouvenir(const QString &college, const QString &souvenirName, const QString &cost);
 
-    /**
-    * @brief adds a souv to DB for data tables
-    * @param &college - college containing souv
-    * @param &souName - name of souv
-    * @param &cost - cost of souv
-    * @return void - none
-    */
-    void addSou(const QString &college, const QString &souName, const double &cost);
+    void removeSouvenir(const QString &souvenirName, const QString &college);
 
-    /**
-    * @brief removes a souv to DB for data tables
-    * @param &college - college containing souv
-    * @param &souName - name of souv
-    * @return void - none
-    */
-    void removeSou(const QString &souName, const QString &college);
+    void updateSouvenir(const QString &souvenirName, const QString &college, const QString &spin, const QString &newsouvenir);
 
-    /**
-    * @brief updates souv to DB for data tables with new values
-    * @param &college - college containing souv
-    * @param &souName - name of souv
-    * @param &cost - cost of souv
-    * @param &newSovenir - new object data
-    * @return void - none
-    */
-    void updateSou(const QString &souName, const QString &college, const double &spin, const QString &newSouvenir);
+    bool souvenirExists(const QString &name, const QString &college);
 
-    /**
-    * @brief adds souv to cart
-    * @param count - quantity of items
-    * @param souvenir - name of souv
-    * @param price - cost of souv
-    * @return void - none
-    */
-    void addCart(const QString trip, const QString college, const QString souvenir, const double price, const int count);
+    void clearColleges();
 
-    /**
-    * @brief updates total items in carts with accurate corresponding data
-    * @param count - quantity of items
-    * @param souvenir - name of souv
-    * @param college - name of college selling souv
-    * @return void - none
-    */
-    void updateCart(const QString college, const QString souvenir, const int count);
-
-    /**
-    * @brief returns quanitity of items in cart
-    * @param souvenir - name of souv
-    * @param college - name of college selling souv
-    * @return int - quanity of cart
-    */
-    int cartQuantity(const QString college, const QString souvenir);
-
-    /**
-    * @brief delete item from cart
-    * @param souvenir - name of souv
-    * @param college - name of college selling souv
-    * @return void - none
-    */
-    void removeCart(const QString college, const QString souvenir);
-
-    /**
-    * @brief adds purchase to DB and cart
-    * @return void - none
-    */
-    void addPurchase();
-
-    /**
-    * @brief clear all items from cart
-    * @return void - none
-    */
-    void resetCart();
-
-    /**
-    * @brief add colleges from file to DB
-    * @param path - absolute path to db file souv
-    * @return void - none
-    */
-    void addColleges();
-
-    /**
-    * @brief checks to see if the username exists
-    * @param name of the user
-    * @return true - username exists, false - username does not exist
-    */
-    bool userExists(const QString &user);
-
-    /**
-    * @brief checks to see if the souv exists
-    * @param &name - name of souv
-    * @param &college - college that contains souv
-    * @return true - username exists, false - username does not exist
-    */
-    bool souExists(const QString &name, const QString &college);
-
-    /**
-    * @brief clears database of all data
-    * @return void - nothing
-    */
-    void clearDb();
-
-    /**
-     * @brief checks to see if DbManager is open
-     * @return true - DbManager is open, false - DbManager is closed
-     */
     bool isOpen() const;
 
-    /**
-     * @brief checks to see if the username entered is an admin
-     * @param username of the user
-     * @return true - will enable admin login, false - the person is not an admin
-     */
-    bool checkAdmin(const QString &username) const;
+    void addNewColleges(QStringList list);
 
-    /**
-     * @brief Gets password from user
-     * @param name of the user(s)
-     * @return obtains the password from user
-     */
-    QString getPassword(const QString &username) const;
+    QStringList parseFile(QString &string);
 
-    /**
-    * @brief adds a trip to appropiate dataTables
-    * @param tripID - passed in trip ID
-    * @param plannedCollege - holds selected college name
-    * @param index- position for data structure
-    * @return void - nothing
-    */
-    void addTrip(QString tripID, QString plannedCollege, int index, int distanceTo);
-
-    /**
-    * @brief returns whether tripID data exists in DB
-    * @param tripID- trip id to verify
-    * @return bool- whether data exists
-    */
-    bool tripIdExists(QString tripID);
-
-    void createTripTable();
-
+    void createDataTables();
 
 private:
     /**
  * @brief decalre database field memberobj
  */
     QSqlDatabase myDB;
-    QString path;
 };
 
 #endif // DATABASE_H

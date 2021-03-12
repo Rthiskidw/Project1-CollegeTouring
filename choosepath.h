@@ -26,6 +26,8 @@ private slots:
 
     void on_customTourButton_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::ChoosePath *ui;
 };

@@ -2,6 +2,12 @@
 #define SOUVENIRSHOP_H
 
 #include <QWidget>
+#include <QVector>
+#include <QSqlQueryModel>
+#include <QSqlQuery>
+#include <QDebug>
+#include <QLabel>
+#include <QVBoxLayout>
 
 namespace Ui {
 class souvenirShop;
@@ -12,11 +18,38 @@ class souvenirShop : public QWidget
     Q_OBJECT
 
 public:
-    explicit souvenirShop(QWidget *parent = nullptr);
+    explicit souvenirShop(double distance, QVector<QString> collegeVector, QWidget *parent = nullptr);
     ~souvenirShop();
+
+private slots:
+    void on_nextCollege_button_clicked();
+
+    void on_endTour_button_clicked();
+
+    void on_souvenir_tableView_clicked(const QModelIndex &index);
+
+    void on_buy_button_clicked();
+
+    void on_spinBox_input_textChanged(const QString &arg1);
 
 private:
     Ui::souvenirShop *ui;
+
+    double distanceTraveled = 0;       // total distance traveled during trip
+    double grandTotal = 0;             // grand total spent on souvenirs
+    int collegeCount = 0;              // Used for vector index to keep track of which college to display
+    int purchasedSouvAtCampus = 0;     //number of souvenirs bought at each campus
+    double subCostAtCampus = 0;        //sub total cost of souvenirs bought at each campus
+    QStringList subCostList;           //sub total cost of souvenirs bought at each campus as strings
+    QVector<QString> selectedColleges; // Names of each selected college
+    QString tempSouvenir;
+    QString cost;
+    double souvenirCost;
+    int souvenirAmount;
+    QVBoxLayout *vBoxLayout;
+    QWidget *container;
+
+    int customAmount = 0;
 };
 
 #endif // SOUVENIRSHOP_H

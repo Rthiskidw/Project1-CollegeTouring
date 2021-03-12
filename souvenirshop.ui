@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1022</width>
-    <height>624</height>
+    <width>992</width>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-60</x>
-     <y>-110</y>
-     <width>1024</width>
+     <x>30</x>
+     <y>-130</y>
+     <width>961</width>
      <height>441</height>
     </rect>
    </property>
@@ -40,12 +40,15 @@
    <property name="pixmap">
     <pixmap resource="img/Images.qrc">:/souvenirIMGS/logo.png</pixmap>
    </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>320</y>
+     <x>130</x>
+     <y>230</y>
      <width>371</width>
      <height>211</height>
     </rect>
@@ -54,8 +57,8 @@
   <widget class="QListView" name="listView">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>230</y>
+     <x>130</x>
+     <y>180</y>
      <width>371</width>
      <height>21</height>
     </rect>
@@ -64,8 +67,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>180</y>
+     <x>140</x>
+     <y>130</y>
      <width>321</width>
      <height>61</height>
     </rect>
@@ -77,32 +80,32 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>270</y>
+     <x>130</x>
+     <y>240</y>
      <width>321</width>
      <height>61</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Souvenir and Prices&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Souvenirs and Prices&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QTableView" name="tableView_2">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>230</y>
-     <width>291</width>
-     <height>301</height>
+     <x>590</x>
+     <y>170</y>
+     <width>281</width>
+     <height>271</height>
     </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>180</y>
-     <width>321</width>
+     <x>520</x>
+     <y>150</y>
+     <width>461</width>
      <height>61</height>
     </rect>
    </property>
@@ -110,11 +113,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Souvenirs Purchased&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="nextCollege_button">
    <property name="geometry">
     <rect>
-     <x>694</x>
-     <y>572</y>
+     <x>680</x>
+     <y>540</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -123,11 +126,11 @@
     <string>Next College</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="buy_button">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>540</y>
+     <x>310</x>
+     <y>530</y>
      <width>181</width>
      <height>41</height>
     </rect>
@@ -139,8 +142,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>-10</x>
-     <y>-50</y>
+     <x>-150</x>
+     <y>-130</y>
      <width>1421</width>
      <height>711</height>
     </rect>
@@ -151,17 +154,157 @@
    <property name="pixmap">
     <pixmap resource="img/Images.qrc">:/souvenirIMGS/souvenirIMG.png</pixmap>
    </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
-  <zorder>label_5</zorder>
-  <zorder>label</zorder>
+  <widget class="QLabel" name="label_collegeName">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>190</y>
+     <width>371</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>College Name</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableView" name="souvenir_tableView">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>300</y>
+     <width>381</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="endTour_button">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>10</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>End Tour</string>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea_purchased">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>210</y>
+     <width>381</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>379</width>
+      <height>319</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_purchasedSouvAtCampus">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_subCostAtCampus">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>10</y>
+     <width>400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>530</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;Custom Amount&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="customInput">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>550</y>
+     <width>91</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="value">
+    <number>1</number>
+   </property>
+  </widget>
   <zorder>tableView</zorder>
   <zorder>listView</zorder>
+  <zorder>tableView_2</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label</zorder>
   <zorder>label_2</zorder>
   <zorder>label_3</zorder>
-  <zorder>tableView_2</zorder>
   <zorder>label_4</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>pushButton_2</zorder>
+  <zorder>buy_button</zorder>
+  <zorder>label_collegeName</zorder>
+  <zorder>souvenir_tableView</zorder>
+  <zorder>endTour_button</zorder>
+  <zorder>scrollArea_purchased</zorder>
+  <zorder>nextCollege_button</zorder>
+  <zorder>label_purchasedSouvAtCampus</zorder>
+  <zorder>label_subCostAtCampus</zorder>
+  <zorder>label_6</zorder>
+  <zorder>customInput</zorder>
  </widget>
  <resources>
   <include location="img/Images.qrc"/>
