@@ -1,0 +1,102 @@
+\hypertarget{classpath_custom}{}\doxysection{path\+Custom Class Reference}
+\label{classpath_custom}\index{pathCustom@{pathCustom}}
+Inheritance diagram for path\+Custom\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpath_custom}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpath_custom_ac3f320e97849668061b1029642b78f97}{path\+Custom}} (QWidget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em explicit default Constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpath_custom_a567f99d2a21a9dfe88110f8abc4c0950}{$\sim$path\+Custom}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpath_custom_aa4ee7744c875a308e73485cf0d0e1f20}{fill\+Combo\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Class Method to fill combo box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpath_custom_ad814aa4fb382d768aef2376176c80adc}{initialize\+List}} ()
+\begin{DoxyCompactList}\small\item\em Class Method to initialize college list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpath_custom_a51c27796c01daeda86ded2023e4851cd}{Checkbox\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em Class Method to check if check boxes changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpath_custom_a18cb7062b4467a03dfaadb98b2143cff}{efficiency\+Algo}} (QVector$<$ QString $>$ $\ast$colleges, QVector$<$ QString $>$ $\ast$route\+Names, QVector$<$ double $>$ $\ast$route\+Distances, QString current\+College)
+\begin{DoxyCompactList}\small\item\em Class Method to recursively choose most efficient trip. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpath_custom_ac3f320e97849668061b1029642b78f97}\label{classpath_custom_ac3f320e97849668061b1029642b78f97}} 
+\index{pathCustom@{pathCustom}!pathCustom@{pathCustom}}
+\index{pathCustom@{pathCustom}!pathCustom@{pathCustom}}
+\doxysubsubsection{\texorpdfstring{pathCustom()}{pathCustom()}}
+{\footnotesize\ttfamily path\+Custom\+::path\+Custom (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+explicit default Constructor 
+
+Constructor intializes UI for \mbox{\hyperlink{classpath_custom}{path\+Custom}} Calls \mbox{\hyperlink{classpath_custom_ad814aa4fb382d768aef2376176c80adc}{initialize\+List()}} Calls \mbox{\hyperlink{classpath_custom_aa4ee7744c875a308e73485cf0d0e1f20}{fill\+Combo\+Box()}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$parent} & -\/ for QDialog \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpath_custom_a567f99d2a21a9dfe88110f8abc4c0950}\label{classpath_custom_a567f99d2a21a9dfe88110f8abc4c0950}} 
+\index{pathCustom@{pathCustom}!````~pathCustom@{$\sim$pathCustom}}
+\index{````~pathCustom@{$\sim$pathCustom}!pathCustom@{pathCustom}}
+\doxysubsubsection{\texorpdfstring{$\sim$pathCustom()}{~pathCustom()}}
+{\footnotesize\ttfamily path\+Custom\+::$\sim$path\+Custom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Close the \mbox{\hyperlink{classpath_custom}{path\+Custom}} UI 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpath_custom_a51c27796c01daeda86ded2023e4851cd}\label{classpath_custom_a51c27796c01daeda86ded2023e4851cd}} 
+\index{pathCustom@{pathCustom}!CheckboxChanged@{CheckboxChanged}}
+\index{CheckboxChanged@{CheckboxChanged}!pathCustom@{pathCustom}}
+\doxysubsubsection{\texorpdfstring{CheckboxChanged()}{CheckboxChanged()}}
+{\footnotesize\ttfamily void path\+Custom\+::\+Checkbox\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Class Method to check if check boxes changed. 
+
+Checks if check boxes checked value changed Puts all checked colleges into a vector \mbox{\Hypertarget{classpath_custom_a18cb7062b4467a03dfaadb98b2143cff}\label{classpath_custom_a18cb7062b4467a03dfaadb98b2143cff}} 
+\index{pathCustom@{pathCustom}!efficiencyAlgo@{efficiencyAlgo}}
+\index{efficiencyAlgo@{efficiencyAlgo}!pathCustom@{pathCustom}}
+\doxysubsubsection{\texorpdfstring{efficiencyAlgo()}{efficiencyAlgo()}}
+{\footnotesize\ttfamily void path\+Custom\+::efficiency\+Algo (\begin{DoxyParamCaption}\item[{QVector$<$ QString $>$ $\ast$}]{colleges,  }\item[{QVector$<$ QString $>$ $\ast$}]{route\+Names,  }\item[{QVector$<$ double $>$ $\ast$}]{route\+Distances,  }\item[{QString}]{current\+College }\end{DoxyParamCaption})}
+
+
+
+Class Method to recursively choose most efficient trip. 
+
+Takes selected colleges and recursively chooses the most efficient trip \mbox{\Hypertarget{classpath_custom_aa4ee7744c875a308e73485cf0d0e1f20}\label{classpath_custom_aa4ee7744c875a308e73485cf0d0e1f20}} 
+\index{pathCustom@{pathCustom}!fillComboBox@{fillComboBox}}
+\index{fillComboBox@{fillComboBox}!pathCustom@{pathCustom}}
+\doxysubsubsection{\texorpdfstring{fillComboBox()}{fillComboBox()}}
+{\footnotesize\ttfamily void path\+Custom\+::fill\+Combo\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Class Method to fill combo box. 
+
+fills combo box with starting colleges \mbox{\Hypertarget{classpath_custom_ad814aa4fb382d768aef2376176c80adc}\label{classpath_custom_ad814aa4fb382d768aef2376176c80adc}} 
+\index{pathCustom@{pathCustom}!initializeList@{initializeList}}
+\index{initializeList@{initializeList}!pathCustom@{pathCustom}}
+\doxysubsubsection{\texorpdfstring{initializeList()}{initializeList()}}
+{\footnotesize\ttfamily void path\+Custom\+::initialize\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Class Method to initialize college list. 
+
+initializes college list 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/ryans/\+One\+Drive/\+Documents/\+Project1-\/\+College\+Touring/pathcustom.\+h\item 
+C\+:/\+Users/ryans/\+One\+Drive/\+Documents/\+Project1-\/\+College\+Touring/pathcustom.\+cpp\end{DoxyCompactItemize}

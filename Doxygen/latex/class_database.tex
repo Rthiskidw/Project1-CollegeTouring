@@ -1,0 +1,204 @@
+\hypertarget{class_database}{}\doxysection{Database Class Reference}
+\label{class_database}\index{Database@{Database}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_database_aab54dbc32bc616c37fdbe2d634417526}{Database}} (const QString \&path)
+\begin{DoxyCompactList}\small\item\em explicit default Constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_a7ecb8a9e300c2c9bfed2088ba9023507}{add\+Souvenir}} (const QString \&college, const QString \&souvenir\+Name, const QString \&cost)
+\begin{DoxyCompactList}\small\item\em Method to add new Souvenir. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_a19218e1307a5d74b1fcc198cdf211903}{remove\+Souvenir}} (const QString \&souvenir\+Name, const QString \&college)
+\begin{DoxyCompactList}\small\item\em Method to remove a Souvenir. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_ab8f70f6f984369bdc8f0e5e86453e12b}{update\+Souvenir}} (const QString \&souvenir\+Name, const QString \&college, const QString \&spin, const QString \&newsouvenir)
+\begin{DoxyCompactList}\small\item\em Method to update a Souvenir. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_a7f0459c6541997ecc9f8e24aaa83132a}{souvenir\+Exists}} (const QString \&name, const QString \&college)
+\begin{DoxyCompactList}\small\item\em Method to check if souvenir exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_a5f28282f3b028edae876c0dde2b85a2f}{clear\+Colleges}} ()
+\begin{DoxyCompactList}\small\item\em Method to clear all colleges. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_a3fddb01537b25a61184f7092a43b1394}{is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em Method to check if database is open. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_a4c2b1101c31d56a333d225c81026d295}{add\+New\+Colleges}} (QString\+List list)
+\begin{DoxyCompactList}\small\item\em Method to add new colleges. \end{DoxyCompactList}\item 
+QString\+List \mbox{\hyperlink{class_database_a1c545748d2dc9cc20df8463daf57e707}{parse\+File}} (QString \&string)
+\begin{DoxyCompactList}\small\item\em Method to parse a CSV file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_a083e018a5e304be065093b2fae2396d3}{create\+Data\+Tables}} ()
+\begin{DoxyCompactList}\small\item\em Method to create data tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_database_aab54dbc32bc616c37fdbe2d634417526}\label{class_database_aab54dbc32bc616c37fdbe2d634417526}} 
+\index{Database@{Database}!Database@{Database}}
+\index{Database@{Database}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{Database()}{Database()}}
+{\footnotesize\ttfamily Database\+::\+Database (\begin{DoxyParamCaption}\item[{const QString \&}]{path }\end{DoxyParamCaption})}
+
+
+
+explicit default Constructor 
+
+Constructor adds database sets database path checks if database is open
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&path} & -\/ for database path \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_database_a4c2b1101c31d56a333d225c81026d295}\label{class_database_a4c2b1101c31d56a333d225c81026d295}} 
+\index{Database@{Database}!addNewColleges@{addNewColleges}}
+\index{addNewColleges@{addNewColleges}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{addNewColleges()}{addNewColleges()}}
+{\footnotesize\ttfamily void Database\+::add\+New\+Colleges (\begin{DoxyParamCaption}\item[{QString\+List}]{list }\end{DoxyParamCaption})}
+
+
+
+Method to add new colleges. 
+
+\mbox{\hyperlink{class_database_a4c2b1101c31d56a333d225c81026d295}{Database\+::add\+New\+Colleges}}.
+
+adds new colleges to database
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ list of colleges to add\\
+\hline
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_database_a7ecb8a9e300c2c9bfed2088ba9023507}\label{class_database_a7ecb8a9e300c2c9bfed2088ba9023507}} 
+\index{Database@{Database}!addSouvenir@{addSouvenir}}
+\index{addSouvenir@{addSouvenir}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{addSouvenir()}{addSouvenir()}}
+{\footnotesize\ttfamily void Database\+::add\+Souvenir (\begin{DoxyParamCaption}\item[{const QString \&}]{college,  }\item[{const QString \&}]{souvenir\+Name,  }\item[{const QString \&}]{cost }\end{DoxyParamCaption})}
+
+
+
+Method to add new Souvenir. 
+
+adds new souvenir to database
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&college} & -\/ name of college \\
+\hline
+{\em \&souvenir\+Name} & -\/ name of souvenir \\
+\hline
+{\em \&cost} & -\/ cost of souvenir \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_database_a5f28282f3b028edae876c0dde2b85a2f}\label{class_database_a5f28282f3b028edae876c0dde2b85a2f}} 
+\index{Database@{Database}!clearColleges@{clearColleges}}
+\index{clearColleges@{clearColleges}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{clearColleges()}{clearColleges()}}
+{\footnotesize\ttfamily void Database\+::clear\+Colleges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to clear all colleges. 
+
+clears all colleges from database \mbox{\Hypertarget{class_database_a083e018a5e304be065093b2fae2396d3}\label{class_database_a083e018a5e304be065093b2fae2396d3}} 
+\index{Database@{Database}!createDataTables@{createDataTables}}
+\index{createDataTables@{createDataTables}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{createDataTables()}{createDataTables()}}
+{\footnotesize\ttfamily void Database\+::create\+Data\+Tables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to create data tables. 
+
+creates data tables for information in database \mbox{\Hypertarget{class_database_a3fddb01537b25a61184f7092a43b1394}\label{class_database_a3fddb01537b25a61184f7092a43b1394}} 
+\index{Database@{Database}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily bool Database\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to check if database is open. 
+
+checks to see if database is open \mbox{\Hypertarget{class_database_a1c545748d2dc9cc20df8463daf57e707}\label{class_database_a1c545748d2dc9cc20df8463daf57e707}} 
+\index{Database@{Database}!parseFile@{parseFile}}
+\index{parseFile@{parseFile}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{parseFile()}{parseFile()}}
+{\footnotesize\ttfamily QString\+List Database\+::parse\+File (\begin{DoxyParamCaption}\item[{QString \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Method to parse a CSV file. 
+
+parses a CSV file and extracts information
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&string} & -\/ string to parse \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_database_a19218e1307a5d74b1fcc198cdf211903}\label{class_database_a19218e1307a5d74b1fcc198cdf211903}} 
+\index{Database@{Database}!removeSouvenir@{removeSouvenir}}
+\index{removeSouvenir@{removeSouvenir}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{removeSouvenir()}{removeSouvenir()}}
+{\footnotesize\ttfamily void Database\+::remove\+Souvenir (\begin{DoxyParamCaption}\item[{const QString \&}]{souvenir\+Name,  }\item[{const QString \&}]{college }\end{DoxyParamCaption})}
+
+
+
+Method to remove a Souvenir. 
+
+removes a souvenir from database
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&souvenir\+Name} & -\/ name of souvenir \\
+\hline
+{\em \&college} & -\/ name of college \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_database_a7f0459c6541997ecc9f8e24aaa83132a}\label{class_database_a7f0459c6541997ecc9f8e24aaa83132a}} 
+\index{Database@{Database}!souvenirExists@{souvenirExists}}
+\index{souvenirExists@{souvenirExists}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{souvenirExists()}{souvenirExists()}}
+{\footnotesize\ttfamily bool Database\+::souvenir\+Exists (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{const QString \&}]{college }\end{DoxyParamCaption})}
+
+
+
+Method to check if souvenir exists. 
+
+checks to see if souvenir already exists in database
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&name} & -\/ name of souvenir \\
+\hline
+{\em \&college} & -\/ name of college \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_database_ab8f70f6f984369bdc8f0e5e86453e12b}\label{class_database_ab8f70f6f984369bdc8f0e5e86453e12b}} 
+\index{Database@{Database}!updateSouvenir@{updateSouvenir}}
+\index{updateSouvenir@{updateSouvenir}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{updateSouvenir()}{updateSouvenir()}}
+{\footnotesize\ttfamily void Database\+::update\+Souvenir (\begin{DoxyParamCaption}\item[{const QString \&}]{souvenir\+Name,  }\item[{const QString \&}]{college,  }\item[{const QString \&}]{spin,  }\item[{const QString \&}]{newsouvenir }\end{DoxyParamCaption})}
+
+
+
+Method to update a Souvenir. 
+
+updates a current souvenir in database
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&souvenir\+Name} & -\/ name of souvenir \\
+\hline
+{\em \&college} & -\/ name of college \\
+\hline
+{\em \&spin} & -\/ cost of souvenir \\
+\hline
+{\em \&newsouvenir} & -\/ name of new souvenir \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/ryans/\+One\+Drive/\+Documents/\+Project1-\/\+College\+Touring/database.\+h\item 
+C\+:/\+Users/ryans/\+One\+Drive/\+Documents/\+Project1-\/\+College\+Touring/database.\+cpp\end{DoxyCompactItemize}
