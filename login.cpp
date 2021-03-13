@@ -25,7 +25,6 @@ void Login::on_pushButton_login_clicked()
     if(username == "Admin" && password == "Admin")
     {
         QMessageBox::information(this, "Login", "Login Successful");
-        loggedIn = true;
         hide();
         admin = new Admin(this);
         admin->show();
